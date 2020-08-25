@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "691994611518",
+    "firebase_url": "https://bitirme-593d4.firebaseio.com",
+    "project_id": "bitirme-593d4",
+    "storage_bucket": "bitirme-593d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691994611518:android:40d859ecc397df769fa66f",
+        "android_client_info": {
+          "package_name": "com.jideguru.flutter_foodybite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691994611518-4j0v1ggmjeqjc2r9ccn99h3jjtln7dnb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1ktVdYjrHTL_zc7gxuno3wYLaa6UQwWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691994611518-4j0v1ggmjeqjc2r9ccn99h3jjtln7dnb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
