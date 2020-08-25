@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet"   th:href="@{/css/registerAndLoginPage.css}"/>
+    <title>Choose Login </title>
+</head>
+<body>
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins" >
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body" style="margin-top: 100px;">
+                <center>
+                    <form th:action="@{/personalLogin}">
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" type="submit" style="width: 500px;"> Giriş</button>
+                    </div>
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

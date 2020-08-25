@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Forum :: Home Page</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom -->
+    <link href="/static/css/custom.css" rel="stylesheet"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    http://localhost:8083/js/htmlasdasd.js
+    http://localhost:8003/split/otomotic/js/hyasld.js
+    <![endif]-->
+
+    <!-- fonts -->
+    <link href="https://s0.shbdn.com/assets/common:34451c3615b8d488eb6e2455a69f1410.css" media="screen, print" rel="stylesheet" type="text/css"/>
+    <link href="https://s0.shbdn.com/assets/homepage:dcd34609c3fdb1911d2a5b6c7192e315.css" media="screen, print" rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+
+    <!-- CSS STYLE-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />
+
+
+</head>
+
+<style>
+
+    #logo
+    {
+        height: 50px;
+        width: 250px;
+    }
+</style>
+
+<body>
+
+<div class="container-fluid">
+
+    <!-- Slider -->
+    <!-- Fixed navbar -->
+    <div class="header-container ">
+        <div class="header ">
+            <!--suppress XmlUnboundNsPrefix, XmlUnboundNsPrefix -->
+            <p class="clearfix">
+                <img id="logo" src="/img/logo.png" href="/"/>
+            </p>
+            <!--suppress XmlUnboundNsPrefix, XmlUnboundNsPrefix -->
+            <form id="searchSuggestionForm" action="/kelime-ile-arama" method="get" >
+
+                <a><span th:text="${isim}"  />
+
+                </a>
+
+                <a href="/login" rel="nofollow"><span th:text="${logins}"  />
+
+                </a>
+                <a href="/Uye" rel="nofollow">
+
+                    Üye Ol</a>
+            </form>
+
+            <ul>
+                <li class="login-text">
+                    <a rel="nofollow" href="https://secure.sahibinden.com/giris">
+
+                        Giriş Yap</a>
+                </li>
+                <li class="register-text">
+                    <a rel="nofollow" >
+
+                        Üye Ol</a>
+                </li>
+                <li class="username-area">
+                    <a class="tipitip-trigger" data-open-event="click" data-close-event="click" data-position="south-east"
+                       data-class="header-custom-menu userss-menu-tooltip " data-target="#userss-login-tooltip" href="#"></a>
+                </li>
+                <li class="messages">
+                    <a href="#" class="new tipitip-trigger" data-open-event="click" data-close-event="click" data-position="south-east" data-class="header-custom-menu userss-messages-tooltip" data-target="#userss-messages-tooltip">Mesajlar</a>
+                    <span></span>
+                </li>
+                <li class="notifications">
+                    <a class="tipitip-trigger" data-open-event="click" data-close-event="click" data-position="south-east" data-class="header-custom-menu userss-notifications-tooltip" data-target="#userss-notifications-tooltip" href="#"></a>
+                    <span></span>
+                </li>
+                <li class="favorite-classified">
+                    <a href="https://banaozel.sahibinden.com/favori-ilanlar" class="new-my-account-link" rel="nofollow">Favori İlanlarım</a>
+                    <span></span>
+                </li>
+                <li class="favorite-search">
+                    <a href="#" class="tipitip-trigger" data-open-event="click" data-close-event="click"
+                       data-position="south-east" data-class="header-custom-menu favorite-search-tooltip loading-status"
+                       data-target="#favorite-search-tooltip">Favori Aramalarım</a>
+                </li>
+                <li class="new-classified">
+                    <a id="post-new-classified" rel="nofollow" class="btn btn-flat btn-link sourceTrigger trackLinkClick trackId_ucretsiz_ilan" data-source="new_classified"
+                       href="/baslik">
+                        Başlık Oluştur</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- //Slider -->
+
+
+
+
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-xs-12 col-md-8">
+                    <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
+
+                    <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <!-- POST -->
+                    <div class="post" th:each="titles : ${titles}">
+                        <div class="wrap-ut pull-left">
+                            <div class="userinfo pull-left">
+                                <div class="avatar">
+                                    <img src="images/avatar.jpg" alt="" />
+                                    <div class="status green">&nbsp;</div>
+                                </div>
+
+                                <div class="icons">
+                                    <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" />
+                                </div>
+                            </div>
+                            <div class="posttext pull-left" >
+                                <h2><a th:href="'/comment/' + ${titles.id} " th:text="${titles.Title}"  th:data-id="${titles.id}" ></a></h2>
+                                <p th:text="${titles.aciklama}"></p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="postinfo pull-left">
+                            <div class="comments">
+                                <div class="commentbg">
+                                    560
+                                    <div class="mark"></div>
+                                </div>
+
+                            </div>
+                            <div class="views"><i class="fa fa-eye"></i> 1,568</div>
+                            <div class="time"><i class="fa fa-clock-o"></i> 24 min</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div><!-- POST -->
+
+
+                    <!-- POST -->
+
+
+
+                    <!-- POST -->
+
+
+                </div>
+                <div class="col-lg-4 col-md-4">
+
+                    <!-- -->
+                    <div class="sidebarblock">
+                        <h3>Categories</h3>
+                        <div class="divline"></div>
+                        <div class="blocktxt">
+                            <a href="/hepsi">Tüm başlıklar<span class="badge pull-right"></span></a>
+                            <ul class="cats">
+
+                                <li  th:each="sector : ${sectors}"><a  th:href="'/split/' + ${sector.sectorname}" th:data-id="${sector.sectorname}"  th:text="${sector.sectorname}"><span class="badge pull-right">10</span></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-xs-12">
+                    <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
+
+                    <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1 col-xs-3 col-sm-2 logo "><a href="#"><img src="images/logo.jpg" alt=""  /></a></div>
+                <div class="col-lg-8 col-xs-9 col-sm-5 " style="font-size: medium">Copyrights 2017, HASAN ALTUN</div>
+                <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
+                    <ul class="socialicons">
+                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cloud"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- get jQuery from the google apis -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<script type="text/javascript" src="js/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+
+<!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
+<script type="text/javascript">
+
+    var revapi;
+
+    jQuery(document).ready(function() {
+        "use strict";
+        revapi = jQuery('.tp-banner').revolution(
+            {
+                delay: 15000,
+                startwidth: 1200,
+                startheight: 278,
+                hideThumbs: 10,
+                fullWidth: "on"
+            });
+
+    });	//ready
+
+</script>
+
+<!-- END REVOLUTION SLIDER -->
+</body>
+</html>

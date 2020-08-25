@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/personalRegister.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        function getBanner(zoneId, extraParams, targetId) {
+
+        };
+        /*]]>*/
+        $(document).ready(function(){
+            $("#city").change(function(){
+                console.log($(this).val());
+                $("#town").empty();
+                $.ajax({
+                    url: "/town/"+$(this).val(),
+                    type: 'GET',
+                    dataType: 'json',
+
+                    success: function(data) {
+                        console.log(data);
+                        $.each(data,function (i,deneme) {
+                            $("#town").append('<option value="' + deneme.townName + '">' + deneme.townName + '</option>');
+
+                        })
+
+                    }
+                });
+            });
+
+            $("#town").change(function(){
+                $.ajax({
+                    url: "/district/"+$(this).val(),
+                    type: 'GET',
+                    dataType: 'json',
+
+                    success: function(data) {
+                        console.log(data);
+                        $.each(data,function (i,deneme) {
+                            $("#district").append('<option value="' + deneme.id + '">' + deneme.districtName + '</option>');
+
+                        })
+
+                    }
+                });
+            });
+        });
+
+
+    </script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<script type="text/javascript">
+    (function ($) {
+        'use strict';
+        /*==================================================================
+            [ Daterangepicker ]*/
+        try {
+            $('.js-datepicker').daterangepicker({
+                "singleDatePicker": true,
+                "showDropdowns": true,
+                "autoUpdateInput": false,
+                locale: {
+                    format: 'DD/MM/YYYY'
+                },
+            });
+
+            var myCalendar = $('.js-datepicker');
+            var isClick = 0;
+
+            $(window).on('click',function(){
+                isClick = 0;
+            });
+
+            $(myCalendar).on('apply.daterangepicker',function(ev, picker){
+                isClick = 0;
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+
+            });
+
+            $('.js-btn-calendar').on('click',function(e){
+                e.stopPropagation();
+
+                if(isClick === 1) isClick = 0;
+                else if(isClick === 0) isClick = 1;
+
+                if (isClick === 1) {
+                    myCalendar.focus();
+                }
+            });
+
+            $(myCalendar).on('click',function(e){
+                e.stopPropagation();
+                isClick = 1;
+            });
+
+            $('.daterangepicker').on('click',function(e){
+                e.stopPropagation();
+            });
+
+
+        } catch(er) {console.log(er);}
+        /*[ Select 2 Config ]
+            ===========================================================*/
+
+        try {
+            var selectSimple = $('.js-select-simple');
+
+            selectSimple.each(function () {
+                var that = $(this);
+                var selectBox = that.find('select');
+                var selectDropdown = that.find('.select-dropdown');
+                selectBox.select2({
+                    dropdownParent: selectDropdown
+                });
+            });
+
+        } catch (err) {
+            console.log(err);
+        }
+    })(jQuery);</script>
+<body>
+<style>
+    .error{
+        color: red;
+        margin-bottom: 50px;
+    }
+</style>
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680" >
+        <div class="card card-4" style="width: 800px;" >
+            <div class="card-body">
+                <h2><b class="label">Kişisel Bilgiler</b></h2>
+                <form th:action="@{/saveIndividual}" method="post"  th:object="${individualRegisterForm}" >
+                    <div class="row row-space" style="margin-top: 15px;">
+                        <div class="col-2">
+                            <div class="input-group" >
+                                <label class="label">İsim</label>
+                                <input class="input--style-4" type="text" name="first_name" th:field="*{name}"/>
+                                <b class="error"><td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td></b>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Soyisim</label>
+                                <input class="input--style-4" type="text" name="first_name" th:field="*{lastName}"/>
+                                <b class="error"><td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</td></b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Email</label>
+                                <input class="input--style-4" type="email" name="email" th:field="*{mail}"/>
+                                <b class="error"> <td th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}">Name Error</td></b>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Telefon Numarası</label>
+                                <input class="input--style-4" type="text" name="first_name" th:field="*{phoneNumber}"/>
+                                <b class="error"> <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Name Error</td></b>
+                            </div>
+                        </div>
+                    </div>
+                    <h2><b class="label">Adres Bilgileri</b></h2>
+
+                    <div class="row row-space" style="margin-top: 15px;">
+                        <div class="col-3" >
+                            <label class="label">Şehir</label>
+                            <div class="input-group">
+                                <select class="input--style-4"  id="city" th:field="*{city}" style="width: 200px; height: 40px; border-style: inset; " >
+                                   <option value=" "></option>
+                                    <option th:each="city : ${cities}" th:value="${city.cityName}" th:text="${city.cityName}"></option>
+                                </select>
+                                <b class="error"> <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Name Error</td></b>
+                            </div>
+                        </div>
+                        <div class="col-3" >
+                            <label class="label">İlçe</label>
+                            <div class="input-group">
+
+                                <select class="input--style-4" id="town" th:field="*{town}" style="width: 200px; height: 40px; border-style: inset" >
+                                </select>
+                                <b class="error"> <td th:if="${#fields.hasErrors('town')}" th:errors="*{town}">Name Error</td></b>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+
+                        <div class="col-2">
+                            <label class="label">Adres Açıklama</label>
+                            <div class="input-group">
+                                <textarea rows="1" cols="25" class="input--style-4" style="width: 675px; height: 50px;" placeholder="..." th:field="*{line}" ></textarea></div>
+                                 <b class="error"> <td th:if="${#fields.hasErrors('line')}" th:errors="*{line}">Name Error</td></b>
+
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Şifre</label>
+                                <input class="input--style-4" type="password" name="first_name" th:field="*{password}"/>
+                                <b class="error"> <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</td></b>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <label class="label">Şifre Tekrar</label>
+                            <div class="input-group">
+                                <input class="input--style-4" type="password" name="first_name" th:field="*{repeatPassword}"/>
+                                <b class="error"> <td th:if="${#fields.hasErrors('repeatPassword')}" th:errors="*{repeatPassword}">Name Error</td></b>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-15">
+                        <center><button class="btn btn--radius-2 btn--blue" type="submit" >Kayıt Ol</button></center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

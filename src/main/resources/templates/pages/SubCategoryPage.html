@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org" >
+<head><title>İkinci El Satılık Araba İlanları ve Fiyatları</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--<script> function isIE() {-->
+    <!--var myNav = navigator.userAgent.toLowerCase();-->
+    <!--return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;-->
+    <!--}-->
+
+    <!--function isOperaMini() {-->
+    <!--var myNav = navigator.userAgent.toLowerCase();-->
+    <!--return (myNav.indexOf('opera mini') != -1) ? true : false;-->
+    <!--}-->
+
+    <!--var unsupportedBrowserUrl = '/desteklenmeyen-tarayici';-->
+    <!--if (isIE() && isIE() <= 10 && location.pathname != unsupportedBrowserUrl) {-->
+    <!--location.href = unsupportedBrowserUrl;-->
+    <!--}-->
+    <!--if (isOperaMini() && location.pathname != unsupportedBrowserUrl) {-->
+    <!--location.href = unsupportedBrowserUrl;-->
+    <!--}-->
+    <!--var dataLayer = [];-->
+    <!--google_tag_params = {'pagetype': 'Search Results'};-->
+    <!--;(function (w, d, s, l, i) {-->
+    <!--w[l] = w[l] || [];-->
+    <!--w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});-->
+    <!--var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';-->
+    <!--j.async = true;-->
+    <!--j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;-->
+    <!--f.parentNode.insertBefore(j, f);-->
+    <!--})(window, document, 'script', 'dataLayer', 'GTM-MGPD5L'); </script>-->
+    <!--<script id="dfpScript"> var googletag = window.googletag || {cmd: []};-->
+
+    <!--function debounce(func, wait, immediate) {-->
+    <!--var timeout;-->
+    <!--return function () {-->
+    <!--var context = this, args = arguments;-->
+    <!--var later = function () {-->
+    <!--timeout = null;-->
+    <!--if (!immediate) func.apply(context, args);-->
+    <!--};-->
+    <!--var callNow = immediate && !timeout;-->
+    <!--clearTimeout(timeout);-->
+    <!--timeout = setTimeout(later, wait);-->
+    <!--if (callNow) func.apply(context, args);-->
+    <!--};-->
+    <!--};-->
+
+    <!--function once(fn, context) {-->
+    <!--var result;-->
+    <!--return function () {-->
+    <!--if (fn) {-->
+    <!--result = fn.apply(context || this, arguments);-->
+    <!--fn = null;-->
+    <!--}-->
+    <!--return result;-->
+    <!--};-->
+    <!--};-->
+
+    <!--function loadScriptsWithCb(u, c) {-->
+    <!--var d = document, t = 'script', o = d.createElement(t), s = d.getElementsByTagName(t)[0];-->
+    <!--o.src = (u.indexOf("http") != -1) ? u : ('//' + u);-->
+    <!--if (c) {-->
+    <!--o.addEventListener('load', function (e) {-->
+    <!--c(null, e);-->
+    <!--}, false);-->
+    <!--}-->
+    <!--s.parentNode.insertBefore(o, s);-->
+    <!--};-->
+
+    <!--function setCookie(name, value, days) {-->
+    <!--if (days) {-->
+    <!--var date = new Date();-->
+    <!--date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));-->
+    <!--var expires = "; expires=" + date.toGMTString();-->
+    <!--} else {-->
+    <!--expires = "";-->
+    <!--}-->
+    <!--document.cookie = name + "=" + value + expires + "; path=/";-->
+    <!--};-->
+
+    <!--function getCookie(name) {-->
+    <!--var value = "; " + document.cookie;-->
+    <!--var parts = value.split("; " + name + "=");-->
+    <!--if (parts.length === 2) return parts.pop().split(";").shift();-->
+    <!--};-->
+
+    <!--function AssetRoute(path) {-->
+    <!--return configuration ? configuration.AssetBasePath + path + configuration.AssetVersion : path;-->
+    <!--}-->
+
+    <!--window.addEventListener("load", function () {-->
+    <!--loadScriptsWithCb('//www.googletagservices.com/tag/js/gpt.js', function () {-->
+    <!--googletag.cmd.push(function () {-->
+    <!--var el = document.getElementById("js-hook-for-setItemAdvert");-->
+    <!--window.closeAdvertListing = function () {-->
+    <!--setCookie("hideListingAdvert", true, 1);-->
+    <!--};-->
+    <!--if (el && getCookie("hideListingAdvert") != "true") {-->
+    <!--el.classList.remove("dn");-->
+    <!--}-->
+    <!--googletag.defineSlot('/100875367/liste_990x250', [[970, 250], [1200, 980], [990, 250], [1200, 320]], 'div-gpt-ad-1456492490664-0').addService(googletag.pubads());-->
+    <!--googletag.defineSlot('/100875367/ilan_listeleme_native', [[728, 90], [895, 115], [895, 81]], 'div-gpt-ad-1546598586142-0').addService(googletag.pubads());-->
+    <!--googletag.defineSlot('/100875367/arb_2el_kulakcik_80x200', [80, 200], 'div-gpt-ad-1546598493124-0').addService(googletag.pubads());-->
+    <!--googletag.pubads().setTargeting('breadcrumbs', 'Otomobil');-->
+    <!--googletag.pubads().setTargeting('city', "Ankara");-->
+    <!--googletag.pubads().setTargeting('city', "İstanbul Anadolu");-->
+    <!--googletag.pubads().setTargeting('city', "İstanbul Avrupa");-->
+    <!--googletag.pubads().setTargeting('vehicleType', 'Otomobil');-->
+    <!--googletag.pubads().setTargeting('LoginStatus', "True");-->
+    <!--googletag.pubads().setTargeting('UserType', "Bireysel");-->
+    <!--googletag.pubads().enableSingleRequest();-->
+    <!--googletag.pubads().disableInitialLoad();-->
+    <!--googletag.pubads().enableLazyLoad();-->
+    <!--googletag.enableServices();-->
+    <!--googletag.cmd.push(function () {-->
+    <!--googletag.display('div-gpt-ad-1456492490664-0');-->
+    <!--googletag.display('div-gpt-ad-1546598586142-0');-->
+    <!--if (document.body.getBoundingClientRect().width > 1400) {-->
+    <!--googletag.display('div-gpt-ad-1546598493124-0');-->
+    <!--}-->
+    <!--});-->
+    <!--;googletag.pubads().addEventListener('slotRenderEnded', function (event) {-->
+    <!--if (event.isEmpty) {-->
+    <!--var elemId = event.slot.getSlotElementId();-->
+    <!--var domEl = document.getElementById(elemId);-->
+    <!--if (!!domEl) {-->
+    <!--domEl.classList.add("dn");-->
+    <!--}-->
+    <!--}-->
+    <!--});-->
+    <!--;var timeOutCall4dverts = setTimeout(function () {-->
+    <!--googletag.display();-->
+    <!--googletag.pubads().refresh();-->
+    <!--clearTimeout(timeOutCall4dverts);-->
+    <!--}, 15);-->
+    <!--});-->
+    <!--});-->
+    <!--}); </script>-->
+
+    <style type="text/css"> @charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    } </style>
+    <style>html {
+        font-size: 100%;
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%
+    }
+
+    body {
+        margin: 0
+    }
+
+    header {
+        display: block
+    }
+
+    a {
+        background-color: transparent
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: .75em 0
+    }
+
+    h2 {
+        font-size: 1.5em;
+        margin: 1em 0
+    }
+
+    h3 {
+        font-size: 1.17em;
+        margin: 1.28205em 0
+    }
+
+    h4 {
+        font-size: 1em;
+        margin: 1.5em 0
+    }
+
+    img {
+        border: 0;
+        -ms-interpolation-mode: bicubic
+    }
+
+    ul {
+        margin: 1.5em 0
+    }
+
+    ul {
+        padding: 0 0 0 40px
+    }
+
+    p {
+        margin: 1.5em 0
+    }
+
+    form {
+        margin: 0
+    }
+
+    button, input, select {
+        color: inherit;
+        font: inherit;
+        margin: 0
+    }
+
+    button {
+        overflow: visible
+    }
+
+    button, select {
+        text-transform: none
+    }
+
+    button {
+        -webkit-appearance: button
+    }
+
+    button::-moz-focus-inner, input::-moz-focus-inner {
+        border: 0;
+        padding: 0
+    }
+
+    input {
+        line-height: normal
+    }
+
+    input[type=checkbox], input[type=radio] {
+        box-sizing: border-box;
+        padding: 0
+    }
+
+    input[type=search] {
+        -webkit-appearance: textfield;
+        box-sizing: content-box
+    }
+
+    input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+
+    td {
+        padding: 0
+    }
+
+    @keyframes ngdialog-fadein {
+        0% {
+            opacity: 0
+        }
+        100% {
+            opacity: 1
+        }
+    }
+
+    @keyframes ngdialog-flyin {
+        0% {
+            opacity: 0;
+            transform: translateY(-40px)
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    .ngdialog *, .ngdialog :after, .ngdialog :before {
+        box-sizing: inherit
+    }
+
+    .ngdialog {
+        box-sizing: border-box;
+        position: fixed;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 10000;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0
+    }
+
+    .ngdialog-overlay {
+        position: fixed;
+        background: rgba(0, 0, 0, .4);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        -webkit-backface-visibility: hidden;
+        animation: ngdialog-fadein .5s
+    }
+
+    .ngdialog-content {
+        background: #fff;
+        -webkit-backface-visibility: hidden;
+        animation: ngdialog-fadein .5s
+    }
+
+    .bold {
+        font-weight: 700 !important
+    }
+
+    .semi-bold {
+        font-weight: 600 !important
+    }
+
+    .smaller-text {
+        font-size: 12px;
+        line-height: 18px
+    }
+
+    .mid-title {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px
+    }
+
+    .icon-size-18 {
+        font-size: 18px;
+        line-height: 18px
+    }
+
+    .icon-size-20 {
+        font-size: 20px;
+        line-height: 20px
+    }
+
+    .icon-size-48 {
+        font-size: 48px;
+        line-height: 48px
+    }
+
+    .color-black2018 {
+        color: #1a1a1a
+    }
+
+    .color-yellow2018 {
+        color: #ffdb4d
+    }
+
+    .color-breadCrumbGray2018 {
+        color: gray
+    }
+
+    .color-white {
+        color: #fff
+    }
+
+    .color-red4 {
+        color: #e40030
+    }
+
+    .color-grey2 {
+        color: #d3d2d2
+    }
+
+    .color-grey6 {
+        color: #434041
+    }
+
+    .tac {
+        text-align: center
+    }
+
+    .tal {
+        text-align: left
+    }
+
+    .tar {
+        text-align: right
+    }
+
+    .font-11 {
+        font-size: 11px
+    }
+
+    .font-small {
+        font-size: 10px
+    }
+
+    .font-default-minus {
+        font-size: 12px
+    }
+
+    .font-default {
+        font-size: 14px
+    }
+
+    .font-default-plus {
+        font-size: 16px
+    }
+
+    .font-letter1 {
+        letter-spacing: 1px
+    }
+
+    .no-wrap {
+        white-space: nowrap
+    }
+
+    .crop-after {
+        height: auto;
+        overflow: hidden
+    }
+
+    .crop-after-20 {
+        max-height: 20px;
+        min-height: 20px
+    }
+
+    .crop-after-40 {
+        max-height: 40px;
+        min-height: 40px
+    }
+
+    .word-break {
+        word-break: break-word
+    }
+
+    .val-top {
+        vertical-align: top
+    }
+
+    .val-middle {
+        vertical-align: middle
+    }
+
+    .lh10 {
+        line-height: 10px
+    }
+
+    .lh30 {
+        line-height: 30px
+    }
+
+    .lh40 {
+        line-height: 40px
+    }
+
+    .bg-white {
+        background-color: #fff
+    }
+
+    .bg-red4 {
+        background-color: #e40030
+    }
+
+    .btn {
+        border-radius: 0;
+        background: 0 0;
+        border: none;
+        padding: 0 21px;
+        text-decoration: none;
+        display: inline-block
+    }
+
+    .btn-yellow2018 {
+        background-color: #ffdb4d;
+        color: #1a1a1a;
+        font-weight: 600;
+        letter-spacing: -.4px
+    }
+
+    .btn-lightgray20182 {
+        background-color: #f0f0f0;
+        color: #1a1a1a;
+        font-weight: 600
+    }
+
+    .btn-block {
+        width: 100%;
+        padding: 0;
+        text-align: center
+    }
+
+    .btn-green {
+        background-color: #47b347;
+        color: #fff
+    }
+
+    .btn-white-red-black {
+        color: #434041;
+        background-color: #fff;
+        border: 1px solid #e40030
+    }
+
+    .dfp-container {
+        text-align: center;
+        position: relative
+    }
+
+    .dfp-container .dfp-main {
+        width: auto;
+        margin: 0 auto
+    }
+
+    .dfp990-static {
+        width: 996px
+    }
+
+    .dfpClose-customized {
+        right: 8px;
+        top: 3px;
+        padding: 2px 6px;
+        background: #ccc
+    }
+
+    .w72 {
+        width: 72px
+    }
+
+    .w80prl4 {
+        width: 80px;
+        padding: 0 4px
+    }
+
+    .with-small-border-radius {
+        border-radius: 2px
+    }
+
+    .with-border-radius {
+        border-radius: 4px
+    }
+
+    .border-radius-top {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px
+    }
+
+    .border-radius-bottom {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px
+    }
+
+    .border-grey1 {
+        border: 1px solid #e9e9e9
+    }
+
+    .border-green4 {
+        border: 1px solid #47b347
+    }
+
+    .border-navy3 {
+        border: 1px solid #a9b0b7
+    }
+
+    .br0 {
+        border-right: 0
+    }
+
+    .ngdialog-overlay {
+        background-color: rgba(255, 255, 255, .9)
+    }
+
+    .zitop {
+        z-index: 10053
+    }
+
+    .zi3 {
+        z-index: 3
+    }
+
+    .arabam-modal-wrapper.ngdialog {
+        padding: 160px 0;
+        padding: 20vh 0
+    }
+
+    @media (max-width: 480px) {
+        .arabam-modal-wrapper.ngdialog {
+            padding: 0
+        }
+    }
+
+    .arabam-modal-wrapper .ngdialog-content {
+        width: 640px;
+        background: #fff;
+        position: relative;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        animation: ngdialog-fadein .5s;
+        animation: ngdialog-flyin .5s;
+        border-radius: 4px;
+        margin: 0 auto;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2)
+    }
+
+    @media (max-width: 480px) {
+        .arabam-modal-wrapper .ngdialog-content {
+            box-shadow: none
+        }
+    }
+
+    .modal-form-loading-container .ngdialog-content {
+        width: 320px;
+        min-width: 320px
+    }
+
+    @media (max-width: 480px) {
+        .arabam-modal-wrapper .ngdialog-content {
+            width: 100%;
+            float: none;
+            text-align: left
+        }
+
+        .arabam-modal-wrapper .ngdialog-content {
+            min-height: calc(100% - 41px);
+            min-height: calc(100vh - 41px)
+        }
+
+        .modal-form-loading-container .ngdialog-content {
+            height: 136px;
+            min-height: 136px;
+            margin: calc(100% - 68px) auto
+        }
+    }
+
+    .select-container-2018 {
+        width: 100%;
+        height: 30px;
+        overflow: hidden;
+        border-radius: 0;
+        border: 1px solid #d3d2d2;
+        position: relative;
+        display: inline-block;
+        margin: 0 6px;
+        font-size: 13px
+    }
+
+    .select-container-2018:before {
+        position: absolute;
+        text-align: center;
+        top: 0;
+        right: 10px;
+        content: "\f107";
+        font-family: FontAwesome;
+        color: #1a1a1a;
+        height: 100%;
+        line-height: 30px;
+        width: 12px;
+        background-color: transparent;
+        font-weight: 600
+    }
+
+    .select-container-2018 select {
+        width: 100%;
+        height: 30px;
+        background: 0 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        font-weight: 600;
+        padding: 0 24px 0 12px;
+        border: none;
+        display: block;
+        background-color: transparent;
+        position: relative
+    }
+
+    .select-container-2018 select.p0 {
+        padding: 0
+    }
+
+    .select-container-2018 select::-ms-expand {
+        display: none
+    }
+
+    .select-container-2018.h40 {
+        height: 40px
+    }
+
+    .select-container-2018.h40 select {
+        height: 40px
+    }
+
+    .select-container-2018.h40:before {
+        line-height: 40px
+    }
+
+    .form-control2018 {
+        display: block;
+        width: 100%;
+        height: 40px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #000;
+        background-image: none;
+        border: 1px solid #d3d2d2
+    }
+
+    .form-control2018.br0 {
+        border-right: 0
+    }
+
+    .form-control2018:-ms-input-placeholder {
+        color: silver
+    }
+
+    .with-box-shadow {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .25)
+    }
+
+    .cookie-wrapper {
+        opacity: .85;
+        position: -webkit-sticky;
+        position: sticky;
+        z-index: 11903;
+        bottom: 0;
+        left: 0
+    }
+
+    .cookie-bottom-placeholder {
+        background-color: #1a1a1a;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 50px
+    }
+
+    @media (max-width: 480px) {
+        .cookie-wrapper {
+            opacity: .95
+        }
+
+        .cbp-shrink-mobile {
+            padding: 10px 0;
+            line-height: 18px
+        }
+    }
+
+    .breadcrumb-container {
+        height: 34px;
+        padding-top: 2px
+    }
+
+    .sticky-kulakcik-r3klam {
+        position: absolute;
+        top: 50%;
+        margin-top: -100px;
+        right: 0;
+        z-index: 1
+    }
+
+    .sticky-kulakcik-r3klam.skr-scrolls-in-listings {
+        position: fixed
+    }
+
+    @media (max-width: 1440px) {
+        .sticky-kulakcik-r3klam {
+            display: none
+        }
+    }
+
+    .vertical-half-offset-plus {
+        margin-top: 16px;
+        margin-bottom: 16px
+    }
+
+    .vertical-half-padder-minus {
+        padding-top: 8px;
+        padding-bottom: 8px
+    }
+
+    .vertical-half-padder-plus {
+        padding-top: 16px;
+        padding-bottom: 16px
+    }
+
+    .vertically-centered {
+        line-height: 20px;
+        height: 20px
+    }
+
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        clear: both
+    }
+
+    .container::after {
+        content: "";
+        display: block;
+        clear: both
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            width: 996px
+        }
+    }
+
+    @media (min-width: 1220px) {
+        .container {
+            width: 1220px
+        }
+    }
+
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+        clear: both
+    }
+
+    .row::after {
+        content: "";
+        display: block;
+        clear: both
+    }
+
+    .col-md-3, .col-md-9 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 10px;
+        padding-right: 10px
+    }
+
+    @media (min-width: 1024px) {
+        .col-md-3, .col-md-9 {
+            float: left
+        }
+
+        .col-md-3 {
+            width: 25%
+        }
+
+        .col-md-9 {
+            width: 75%
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 1023px) {
+        .container {
+            width: 996px;
+            min-width: 996px
+        }
+
+        header {
+            min-width: 996px
+        }
+
+        .col-md-3, .col-md-9 {
+            float: left
+        }
+
+        .col-md-3 {
+            width: 25%
+        }
+
+        .col-md-9 {
+            width: 75%
+        }
+    }
+
+    .visible-lg {
+        display: none !important
+    }
+
+    @media (min-width: 1221px) {
+        .visible-lg {
+            display: block !important
+        }
+
+        tr.visible-lg {
+            display: table-row !important
+        }
+    }
+
+    .p0 {
+        padding: 0
+    }
+
+    .ma {
+        margin: auto
+    }
+
+    .p8 {
+        padding: 8px
+    }
+
+    .p16 {
+        padding: 16px
+    }
+
+    .horizontal-half-padder-minus {
+        padding-left: 8px;
+        padding-right: 8px
+    }
+
+    .horizontal-half-padder-plus {
+        padding-left: 16px;
+        padding-right: 16px
+    }
+
+    .mb20 {
+        margin-bottom: 20px
+    }
+
+    .mt16 {
+        margin-top: 16px
+    }
+
+    .mr16 {
+        margin-right: 16px
+    }
+
+    .mb12 {
+        margin-bottom: 12px
+    }
+
+    .mt10 {
+        margin-top: 10px
+    }
+
+    .mb10 {
+        margin-bottom: 10px
+    }
+
+    .mt8 {
+        margin-top: 8px
+    }
+
+    .mr8 {
+        margin-right: 8px
+    }
+
+    .ml8 {
+        margin-left: 8px
+    }
+
+    .mt4 {
+        margin-top: 4px
+    }
+
+    .mr4 {
+        margin-right: 4px
+    }
+
+    .ml4 {
+        margin-left: 4px
+    }
+
+    .mt-16 {
+        margin-top: -16px
+    }
+
+    .mr0 {
+        margin-right: 0
+    }
+
+    .ml0 {
+        margin-left: 0
+    }
+
+    .pr20 {
+        padding-right: 20px
+    }
+
+    .pl20 {
+        padding-left: 20px
+    }
+
+    .pr16 {
+        padding-right: 16px
+    }
+
+    .pb16 {
+        padding-bottom: 16px
+    }
+
+    .pr10 {
+        padding-right: 10px
+    }
+
+    .pb10 {
+        padding-bottom: 10px
+    }
+
+    .pl10 {
+        padding-left: 10px
+    }
+
+    .pr8 {
+        padding-right: 8px
+    }
+
+    .pl8 {
+        padding-left: 8px
+    }
+
+    .pt4 {
+        padding-top: 4px
+    }
+
+    .pb4 {
+        padding-bottom: 4px
+    }
+
+    .pl4 {
+        padding-left: 4px
+    }
+
+    .cf {
+        clear: both
+    }
+
+    .cf::after {
+        content: "";
+        display: block;
+        clear: both
+    }
+
+    .fl {
+        float: left
+    }
+
+    .fr {
+        float: right
+    }
+
+    .ovh {
+        overflow: hidden
+    }
+
+    .dn {
+        display: none
+    }
+
+    .db {
+        display: block
+    }
+
+    .dib {
+        display: inline-block
+    }
+
+    .di {
+        display: inline
+    }
+
+    .df {
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    .pr {
+        position: relative
+    }
+
+    .pa {
+        position: absolute
+    }
+
+    .w100 {
+        display: block;
+        width: 100%
+    }
+
+    table.w100 {
+        display: table
+    }
+
+    .w100.df {
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    .flex1 {
+        -ms-flex: 1 0;
+        flex: 1 0
+    }
+
+    .df-center {
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    .df-jcsbetween {
+        -ms-flex-pack: justify;
+        justify-content: space-between
+    }
+
+    .t0 {
+        top: 0
+    }
+
+    .l0 {
+        left: 0
+    }
+
+    .r0 {
+        right: 0
+    }
+
+    .w40px {
+        width: 40px
+    }
+
+    header {
+        height: 56px
+    }
+
+    @media (max-width: 481px) {
+        header {
+            height: auto;
+            position: relative;
+            background-color: #fff;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, .06);
+            margin-bottom: 10px
+        }
+    }
+
+    @media (max-width: 481px) {
+        header .search {
+            margin-top: 0
+        }
+    }
+
+    header .search input {
+        border: 0;
+        border-bottom: 1px solid #1a1a1a;
+        padding: 0 4px 0 6px;
+        background: 0 0;
+        color: #848e99;
+        width: calc(100% - 40px);
+        line-height: 22px;
+        border-radius: 0;
+        -webkit-appearance: none
+    }
+
+    header .search button {
+        border: 0;
+        border-bottom: 1px solid #1a1a1a;
+        background: 0 0;
+        width: 20px;
+        color: #1a1a1a
+    }
+
+    .header-desktop {
+        height: 88px;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, .06)
+    }
+
+    .reminder-bar {
+        z-index: 10002
+    }
+
+    @media (min-width: 482px) {
+        .reminder-bar {
+            width: 360px;
+            left: 37%;
+            left: calc(50% - 180px)
+        }
+    }
+
+    .getAdvertBtn {
+        margin-top: 2px;
+        line-height: 35px;
+        vertical-align: middle;
+        height: 35px;
+        -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center
+    }
+
+    header {
+        background-color: #fff;
+        z-index: 3
+    }
+
+    @media (max-width: 480px) {
+        header {
+            z-index: unset
+        }
+    }
+
+    header .menu {
+        height: 28px;
+        position: relative;
+        z-index: 3;
+        background-color: #f7f7f7
+    }
+
+    header .menu ul.level1 {
+        margin-left: 308px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 28px
+    }
+
+    @media (max-width: 1024px) {
+        header .menu ul.level1 {
+            margin-left: 234px
+        }
+    }
+
+    header .menu ul.level1 li.level1 {
+        margin-left: 17px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%
+    }
+
+    header .menu ul.level1 li.level1 .menu-title.link {
+        font-size: 12px !important
+    }
+
+    header .menu ul.level1 li.level1 > .menu-title {
+        font-size: 12px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.67;
+        letter-spacing: -.3px;
+        text-align: right;
+        color: #1a1a1a
+    }
+
+    header .menu ul.level1 li.level1 > .menu-title::after {
+        content: "";
+        display: inline-block;
+        margin-left: 5px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 6px solid #1a1a1a
+    }
+
+    header .menu ul.level1 li.level1 ul {
+        display: none
+    }
+
+    header .menu ul.level1 li.level1 ul.level2 {
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        margin-top: 28px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 15px;
+        z-index: 9;
+        border-top: 3px solid #e40030;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    header .menu ul.level1 li.level1 ul.level2 > li.level2 {
+        margin-top: 12px
+    }
+
+    header .menu ul.level1 li.level1 ul.level2 > li.level2 > .menu-title {
+        font-size: 14px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #000
+    }
+
+    header .menu ul.level1 li.level1 ul.level3 {
+        padding-top: 5px
+    }
+
+    header .menu ul.level1 li.level1 ul.level3 > li.level3 {
+        margin-bottom: 5px;
+        font-size: 0;
+        line-height: 0
+    }
+
+    header .menu ul.level1 li.level1 ul.level3 > li.level3 > .menu-title {
+        font-size: 12px;
+        font-weight: 400;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #1a1a1a
+    }
+
+    header .menu ul.level1 li.level1:first-child {
+        margin-left: 0
+    }
+
+    header .menu ul.level1 li.level1:nth-child(2) ul.level2 {
+        width: 470px;
+        height: 377px;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+    header .menu ul.level1 li.level1:nth-child(2) ul.level2 li.level2 {
+        width: 130px;
+        margin-left: 20px
+    }
+
+    header .menu ul.level1 li.level1:nth-child(2) ul.level2 li.level2:first-child {
+        margin-left: 0
+    }
+
+    header .menu ul.level1 li.level1:nth-child(2) ul.level2 li.level2:nth-child(n+4) {
+        margin-top: 7px;
+        width: 150px
+    }
+
+    header .headerBar {
+        display: -ms-flexbox;
+        display: flex;
+        height: 60px
+    }
+
+    header .headerBar #arabam-header-logo {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    header .headerBar #arabam-header-logo img {
+        width: 210.4px;
+        height: auto
+    }
+
+    header .headerBar .search {
+        width: 559px;
+        margin-left: 98px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    @media (max-width: 1024px) {
+        header .headerBar .search {
+            width: 428px;
+            margin-left: 23px
+        }
+    }
+
+    header .headerBar .search .search-container {
+        height: 35px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex: 1;
+        flex: 1;
+        position: relative
+    }
+
+    header .headerBar .search .search-container .search-icon-container {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        margin-top: -7.5px;
+        color: gray;
+        font-size: 15px;
+        line-height: 15px
+    }
+
+    header .headerBar .search .search-container .search-input-container {
+        -ms-flex: 1;
+        flex: 1;
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    header .headerBar .search .search-container .search-input-container .search-input {
+        -ms-flex: 1;
+        flex: 1;
+        font-weight: 600;
+        padding-left: 35px;
+        color: #1a1a1a;
+        border: 1px solid rgba(151, 151, 151, .2);
+        background-color: #fff;
+        border-right: 0;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        height: 33px;
+        background-color: #f0f0f0
+    }
+
+    header .headerBar .search .search-container .search-input-container .search-input:-ms-input-placeholder {
+        color: gray
+    }
+
+    header .headerBar .search .search-container .search-input-container .search-input::-webkit-input-placeholder {
+        color: gray
+    }
+
+    header .headerBar .search .search-container .search-input-container .search-input::-moz-placeholder {
+        color: gray
+    }
+
+    header .headerBar .search .search-container .search-input-container .search-input:-ms-input-placeholder {
+        color: gray
+    }
+
+    header .headerBar .search .search-container .search-input-container .search-input:-moz-placeholder {
+        color: gray
+    }
+
+    @media (max-width: 1024px) {
+        header .headerBar .search .search-container .search-input-container .search-input {
+            font-size: 12px
+        }
+    }
+
+    header .headerBar .search .search-container .search-input-container .search-result {
+        position: absolute;
+        top: 35px;
+        width: 100%;
+        position: absolute;
+        top: 35px;
+        left: 0;
+        max-height: 0;
+        background-color: #fff;
+        border: 2px solid #e40030;
+        border-width: 0;
+        overflow: hidden
+    }
+
+    header .headerBar .search .search-container .search-button {
+        border: 0;
+        width: 90px;
+        background-color: #e40030;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    header .headerBar .search .search-container .search-button span {
+        font-size: 18px;
+        font-weight: 700;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.11;
+        letter-spacing: -.5px;
+        color: #fff
+    }
+
+    header .headerBar .header-actions-container {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex: 1;
+        flex: 1;
+        -ms-flex-pack: end;
+        justify-content: flex-end
+    }
+
+    header .headerBar .header-actions-container #header-favorites-wrapper {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-right: 10px
+    }
+
+    header .headerBar .header-actions-container #header-favorites-wrapper > i {
+        font-size: 23px;
+        line-height: 22px;
+        display: block
+    }
+
+    header .headerBar .header-actions-container #header-non-authenticated-navigator {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-right: 20px
+    }
+
+    header .headerBar .header-actions-container #header-non-authenticated-navigator * {
+        font-size: 13px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: -.4px;
+        color: #1a1a1a
+    }
+
+    header .headerBar .header-actions-container #header-non-authenticated-navigator span {
+        margin: 0 4px
+    }
+
+    header .header-overlay {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, .5)
+    }
+
+    @media all and (-ms-high-contrast: none),(-ms-high-contrast: active) {
+        header .menu ul.level1 li.level1 {
+            position: relative
+        }
+
+        header .menu ul.level1 li.level1 ul.level2 {
+            left: 0
+        }
+
+        header .menu ul.level1 li.level1:nth-child(1) ul.level2 {
+            width: 140px
+        }
+
+        header .menu ul.level1 li.level1:nth-child(3) ul.level2 {
+            width: 170px
+        }
+
+        header .menu ul.level1 li.level1:nth-child(4) ul.level2 {
+            width: 187px
+        }
+
+        header .menu ul.level1 li.level1:nth-child(5) ul.level2 {
+            width: 203px
+        }
+
+        header .menu ul.level1 li.level1:nth-child(6) ul.level2 {
+            width: 140px
+        }
+    }
+
+    body, html {
+        height: 100%
+    }
+
+    #wrapper {
+        min-height: calc(100vh - 797px)
+    }
+
+    html {
+        box-sizing: border-box
+    }
+
+    .background2018 {
+        background-color: #f7f7f7
+    }
+
+    button, input, select {
+        border-radius: 0
+    }
+
+    *, :after, :before {
+        box-sizing: inherit
+    }
+
+    h1, h2, h3, h4, p, ul {
+        margin: 0;
+        padding: 0
+    }
+
+    ul {
+        list-style: none
+    }
+
+    h1, h2, h3, h4 {
+        font-weight: 400
+    }
+
+    a {
+        text-decoration: none;
+        color: #0a1e33
+    }
+
+    body {
+        font-family: Open-Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 14px;
+        line-height: 20px;
+        color: #1a1a1a
+    }
+
+    .overlay-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, .5)
+    }
+
+    .input-group2018 {
+        position: relative;
+        display: table;
+        border-collapse: separate
+    }
+
+    .input-group2018 .form-control2018 {
+        position: relative;
+        z-index: 0;
+        float: left;
+        width: 100%;
+        margin-bottom: 0
+    }
+
+    .input-group-flex {
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    .input-group-flex .input {
+        -ms-flex: 1;
+        flex: 1
+    }
+
+    .input-group-flex .input-group-flex-addon {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 0 10px;
+        border: 1px solid #d3d2d2;
+        border-left: 0
+    }
+
+    .input-group2018 .form-control2018, .input-group2018-addon {
+        display: table-cell
+    }
+
+    .input-group2018-addon {
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle
+    }
+
+    .input-group2018-addon {
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        text-align: center;
+        border: 1px solid #d3d2d2;
+        border-left: 0;
+        border-radius: 0
+    }
+
+    .input-group2018 .form-control2018:first-child {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0
+    }
+
+    .input-group2018-addon:last-child {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0
+    }
+
+    .input-group2018-addon:last-child {
+        border-left: 0
+    }
+
+    .listing-table {
+        border-collapse: separate;
+        border-spacing: 0 5px
+    }
+
+    .listing-list-item {
+        height: auto;
+        box-shadow: 0 2px 10px 0 #ededed;
+        line-height: normal
+    }
+
+    .listing-list-item .fade-out-content-wrapper {
+        position: relative;
+        padding: 3px
+    }
+
+    .listing-list-item .elastic-height-container {
+        min-height: 81px;
+        position: relative;
+        padding: 3px
+    }
+
+    .listing-list-item a:visited {
+        color: #7f90a8
+    }
+
+    .listing-list-item .listing-image {
+        width: 100px;
+        max-width: 100px;
+        height: 75px;
+        display: block
+    }
+
+    .listing-list-item .listing-title {
+        font-weight: 800;
+        letter-spacing: -.3px;
+        font-size: 14px
+    }
+
+    .listing-list-item .listing-text {
+        color: #1a1a1a;
+        letter-spacing: -.3px;
+        font-size: 12px
+    }
+
+    .listing-list-item .listing-price {
+        font-size: 12px;
+        font-weight: 800;
+        color: #e40030;
+        letter-spacing: -.3px
+    }
+
+    .listing-list-item .label-container {
+        display: -ms-flexbox;
+        display: flex;
+        font-weight: 600;
+        color: #e40030;
+        letter-spacing: -.2px;
+        font-size: 12px
+    }
+
+    .listing-list-item .label-container .label {
+        color: #e40030
+    }
+
+    .listing-list-item .label-container .label:visited {
+        color: #7f90a8
+    }
+
+    .listing-list-item .pin-container {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 30px;
+        font-size: 18px
+    }
+
+    .listing-list-item .pin-container .pin {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        line-height: 30px;
+        text-align: center
+    }
+
+    .listing-list-item .toolbox-wrapper {
+        position: absolute;
+        z-index: 2;
+        bottom: 5px;
+        right: 0;
+        width: 300px;
+        padding-right: 20px;
+        text-align: right
+    }
+
+    .listing-list-item .toolbox-wrapper span.toolbox-item {
+        color: grey;
+        font-size: 12px;
+        line-height: 18px;
+        display: inline-block
+    }
+
+    #postImg{
+        width: 50px;
+        height: 50px;
+    }
+
+    .listing-list-item .toolbox-wrapper span.toolbox-item + .toolbox-item {
+        margin-left: 8px
+    }
+
+    @media (max-width: 480px) {
+        .listing-list-item a:visited {
+            color: #7f90a8
+        }
+    }
+
+    @media (max-width: 480px) {
+        .listing-list-item .pin-container .pin {
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            font-size: 14px
+        }
+
+        .listing-list-item + .listing-list-item {
+            margin-top: 4px
+        }
+    }
+
+    tags-input {
+        display: block
+    }
+
+    tags-input *, tags-input :after, tags-input :before {
+        box-sizing: border-box
+    }
+
+    tags-input .host {
+        position: relative;
+        height: 100%;
+        border: 0
+    }
+
+    tags-input .tags {
+        overflow: hidden;
+        word-wrap: break-word;
+        border: 0;
+        box-shadow: 0;
+        height: 100%;
+        min-height: 40px;
+        border: 1px solid #d3d2d2;
+        border-right: 0
+    }
+
+    tags-input .tags .tag-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none
+    }
+
+    tags-input .tags .input {
+        border: 0;
+        outline: 0;
+        padding: 6px 12px;
+        float: left;
+        height: 38px;
+        width: 100%;
+        font-size: 14px;
+        color: #1a1a1a
+    }
+
+    tags-input .tags .input::-ms-clear {
+        display: none
+    }
+
+    .category-facet > .category-facet-selection-wrapper:not(.ignore-left-padding) {
+        padding-left: 10px
+    }
+
+    .category-facet .category-facet-selection-wrapper.scrollable {
+        height: 225px;
+        overflow-y: scroll;
+        overflow-x: hidden
+    }
+
+    .category-facet .category-facet-selection-wrapper.scrollable::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent
+    }
+
+    .category-facet .category-facet-selection-wrapper.scrollable::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: rgba(216, 216, 216, .8)
+    }
+
+    .category-facet .category-facet-selection-wrapper.scrollable::-webkit-scrollbar-track {
+        background-color: transparent
+    }
+
+    .category-facet li.selected-list-item {
+        padding-left: 10px
+    }
+
+    .category-facet li.selected-list-item > ul {
+        padding-left: 10px
+    }
+
+    .category-facet button.btn.btn-yellow2018 {
+        font-size: 13px
+    }
+
+    .category-facet .category-facet-selection-item.disabled {
+        padding-left: 0
+    }
+
+    #ajax-categoryfacet-wrapper {
+        margin-top: 10px
+    }
+
+    .list-item {
+        font-size: 13px;
+        line-height: 20px;
+        margin: 5px 0;
+        display: inline-block
+    }
+
+    .list-item.selected {
+        font-weight: 700;
+        font-size: 14px
+    }
+
+    .list-item.selected i.fa {
+        font-weight: 700
+    }
+
+    .list-item-count {
+        font-size: 11px;
+        color: grey;
+        letter-spacing: -.7px
+    }
+
+    .facet-box {
+        background-color: #fff
+    }
+
+    .facet-box .facet-title {
+        height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #1a1a1a;
+        padding: 0 20px;
+        padding-right: 40px;
+        line-height: 50px;
+        position: relative;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
+
+    .facet-box .facet-title .facet-icon {
+        position: absolute;
+        color: #1a1a1a;
+        font-size: 10px;
+        position: absolute;
+        right: 20px;
+        top: 20px
+    }
+
+    .facet-box .facet-content {
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px
+    }
+
+    .facet-item {
+        line-height: 30px;
+        height: 30px
+    }
+
+    .facet-item .filter-label {
+        width: 100%;
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block
+    }
+
+    .facet-item .filter-label .filter-count {
+        color: grey;
+        font-size: 11px;
+        letter-spacing: -.7px
+    }
+
+    .facet-item.checkbox {
+        position: relative;
+        padding-left: 23px
+    }
+
+    .facet-item.checkbox input[type=checkbox] {
+        position: absolute;
+        opacity: 0
+    }
+
+    .facet-item.checkbox .checkmark {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        height: 13px;
+        width: 13px;
+        background-color: #f0f0f0
+    }
+
+    .facet-item.checkbox .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none
+    }
+
+    .facet-item.radio {
+        position: relative;
+        padding-left: 23px
+    }
+
+    .facet-item.radio input {
+        position: absolute;
+        opacity: 0
+    }
+
+    .facet-item.radio .checkmark {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        height: 13px;
+        width: 13px;
+        background-color: #f0f0f0;
+        border-radius: 50%
+    }
+
+    .facet-item.radio .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none
+    }
+
+    .breadcrumb-dropdown {
+        max-height: 390px;
+        min-width: 140px;
+        width: auto;
+        overflow-x: hidden;
+        top: 18px;
+        padding: 10px;
+        color: #1a1a1a;
+        box-shadow: 0 2px 10px 0 #ededed
+    }
+
+    .breadrumb-text {
+        color: #1a1a1a
+    }
+
+    .selected-filters-wrapper {
+        padding: 7px;
+        background-color: #fff
+    }
+
+    @media (max-width: 480px) {
+        .selected-filters-wrapper {
+            padding: 0
+        }
+    }
+
+    .sorting-wrapper {
+        position: relative;
+        left: 0;
+        top: 5px
+    }
+
+    .tabpanel {
+        float: left;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        background-color: #f0f0f0;
+        color: gray;
+        text-align: center;
+        font-weight: 700
+    }
+
+    .tabpanel.active {
+        background-color: #fff;
+        color: #1a1a1a
+    }
+
+    .tabpanel.active {
+        letter-spacing: -.3px
+    }
+
+    .tabpanel + .tabpanel {
+        margin-left: 5px
+    }
+
+    .tabpanel-slim {
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        width: 100px;
+        background-color: gray;
+        color: #fff
+    }
+
+    .tabpanel-slim + .tabpanel-slim {
+        margin-left: 3px
+    }
+
+    @media (max-width: 1220px) {
+        .tabpanel-slim {
+            width: 108px
+        }
+
+        .tw-more-than-3 .tabpanel-slim {
+            width: auto;
+            padding: 0 3px
+        }
+    }
+
+    .sorting-row {
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+        background-color: #fff;
+        height: 30px
+    }
+
+    .visible-on-parent-hover {
+        display: none
+    }
+
+    .listings-always-visible-ad-area {
+        height: 250px
+    }
+
+    .visible-on-parent-hover {
+        display: none
+    }
+
+    h1 {
+        display: inline-block
+    }
+
+    .select-container-2018 {
+        height: 25px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    .select-container-2018.bb1px-nonsense {
+        border: 1px solid #d3d2d2;
+        margin-right: 0
+    }
+
+    .select-container-2018.bb1px-nonsense::before {
+        line-height: 25px
+    }
+
+    .select-container-2018 select {
+        text-indent: 10px
+    }
+
+    .sort-order {
+        color: #1a1a1a;
+        min-width: 200px
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }</style>
+    <link rel="canonical" href="https://www.arabam.com/ikinci-el/otomobil"/>
+    <link rel="next" href="https://www.arabam.com/ikinci-el/otomobil?page=2"/>
+    <script> var configuration = {
+        "AssetBasePath": "https://arbimg1.mncdn.com/assets2",
+        "ImageBasePath": null,
+        "PhotoBasePath": "https://foto.arabam.com",
+        "AssetVersion": "?v=20190503152639",
+        "AuctionApi": "https://ihale.arabam.com",
+        "FbAppId": "19995709208",
+        "IsProductionReady": true,
+        "IsMobile": false,
+        "AppType": 3
+    };
+    </script>
+    <link rel="search" type="application/opensearchdescription+xml" href="/Search.xml" title="arabam.com"/>
+</head>
+<body data-is-ie="False">
+<div id="fb-root"></div>
+
+<div id="wrapper">
+    <div ng-controller="HeaderController as self" class="cf">
+        <header id="header" class="w100 fl bg-white header-desktop pr" ng-init="self.containerElement = 'header'"
+                style=''>
+            <div class="container">
+                <div class="row">
+                    <div class="headerBar">
+                        <a href='/' title="teklifimvar.com" id="arabam-header-logo">
+                            <img  class="menu" href="/" th:src="@{/img/logo.png}"   src="logo.png"/>
+                        </a>
+
+                        <div id="header-search-wrapper" class="search">
+                            <div class="search-container "><i class="icon icon-arabam-search search-icon-container"></i>
+                                <div class="search-input-container"><input type="text" id="search-suggestion-trigger-input"
+                                                                           class="search-input"
+                                />
+                                    <div id="suggestion-wrapper" class="search-result">
+                                        <div id="suggestions-area"></div>
+                                    </div>
+                                </div>
+                                <div class="search-button"><span> ARA </span></div>
+                            </div>
+                        </div>
+                        <div class="header-actions-container">
+                            <div id="header-favorites-wrapper">
+                            </div>
+                            <div   id="header-non-authenticated-navigator" class="dn">
+                                <a href="/chooseLogin" th:if="${isLogin eq false}" rel="nofollow"> Giriş Yap </a><span th:if="${isLogin eq false}">/</span>
+                                <a href="/chooseRegister" th:if="${isLogin eq false}" rel="nofollow"> Üye Ol </a>
+                                <a th:if="${isLogin eq true}" th:text="${customerData.name}"   th:href="${ '/myAccount/' + customerData.userId}"  rel="nofollow" ></a>
+                                <span th:if="${isLogin eq true}">/</span>
+                                <a th:if="${isLogin eq true}" href="/logOut"  rel="nofollow" >Çıkış Yap </a>
+                            </div>
+                            <div id="header-authenticated-nav" class="dn">
+                                <div id="header-user-circle">
+                                    <div class="circle"></div>
+                                    <div id="header-user-menu">
+                                        <div class="top-anchor"></div>
+                                        <div class="inner-wrapper">
+                                            <div id="header-not-completed-advert-wrapper" class="dn">
+                                                <div class="image-wrapper"></div>
+                                                <div class="progress-bar">
+                                                    <div class="outer">
+                                                        <div class="inner"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="btn btn-red2018" id="addInformationToNotCompletedAdvertButton">
+                                                    Bilgi Ekle
+                                                </div>
+                                            </div>
+                                            <ul id="user-dropdown-menu-list">
+                                                <li><a href='/panelim/' rel="nofollow" data-label="Panelim">Panelim</a></li>
+                                                <li><a href='/panelim/ilanlar/liste/yayindakiler' rel="nofollow"
+                                                       data-label="İlanlarım">İlanlarım</a></li>
+                                                <li><a href='/panelim/mesajlar/gelen' rel="nofollow"
+                                                       data-label="Mesajlarım"> Mesajlarım <span
+                                                        id="header-dropdown-message-counter" class="dn"></span></a></li>
+                                                <li class="dn" id="bigorelimCallHistory"><a
+                                                        href='/panelim/gorusmelerim/goruntulu' rel="nofollow"
+                                                        data-label="Görüşmelerim">Görüşmelerim</a></li>
+                                                <li class="dn" id="firmCorporateCallHistory"><a
+                                                        href='/panelim/gorusmelerim/kurumsalhat' rel="nofollow"
+                                                        data-label="Görüşmelerim">Görüşmelerim</a></li>
+                                                <li><a href='/panelim/ilanlar/turbolar/anasayfa' rel="nofollow"
+                                                       data-label="Turbolarım">Turbolarım</a></li>
+                                                <li><a href='/panelim/ekspertiz/takvimim' rel="nofollow"
+                                                       data-label="Ekspertiz">Ekspertiz</a></li>
+                                                <li><a href='/panelim/favori/ilanlarim' rel="nofollow"
+                                                       data-label="Takip Ettiklerim">Favorilerim</a></li>
+                                                <li><a href='/panelim/ayarlar/uyelik-bilgileri' rel="nofollow"
+                                                       data-label="Ayarlar">Profil &amp; Ayarlar</a></li>
+                                                <li class="logout-button"><a href='/cikis-yap?returnUrl=%2F' rel="nofollow"
+                                                                             data-label="Çıkış Yap">Çıkış</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a rel="nofollow" id="header-create-new-advert-button" class="btn btn-yellow2018 getAdvertBtn"
+                               href='/post'> Ücretsiz İlan Ver </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div id="searchContainer" class="cf" ng-controller="SearchController as self">
+
+        <div  class="breadcrumb breadcrumb-desktop pr bg-white cf">
+            <div itemprop="breadcrumb" class="df ma container df-center breadcrumb-container">
+                <a target="_self" class="fl pr16 color-black2018" href="/"><i class="db icon-arabam-home icon-size-18" aria-hidden="true"></i></a>
+                <div class="horizontal-half-padder-minus cursor-pointer pr"
+                     cat-parent-id="18"><span class="db"><a class="breadrumb-text" th:text="${categoryName}"
+                                                             target="_self"></a></span>
+                </div>
+                <div class="horizontal-half-padder-minus cursor-pointer pr"
+                     cat-parent-id="18"><span class="db"><a class="breadrumb-text" th:text="${subCategoryName}"
+                                                             target="_self"></a></span>
+                </div>
+            </div>
+        </div>
+        <div class="container mt16">
+            <div class="row">
+                <div class="col-md-3" id="js-hook-missing-space-facade">
+                    <form class="pr" name="filters" ng-submit="$event.preventDefault()"
+                          action="/ikinci-el">
+                        <div class="">
+                            <div class="bg-white category-facet pl20 pr20"
+                                 ng-class="{'pb20': self.toggler['multi-category']}"
+                                 ng-init="self.queryString = &quot;?category=18\u0026city=6\u0026city=85\u0026city=86&quot;"
+                                 itemprop="breadcrumb">
+                                <div class="vertical-half-padder-plus red-on-hover">
+                                    <div class="cursor-pointer font-default-plus bold usn" id="multi-category"
+                                    >  Alt Kategori <i
+                                            class="vertically-centered fr fa font-small"
+                                            ng-class="{'fa-chevron-up': self.toggler['multi-category'], 'fa-chevron-down': !self.toggler['multi-category']}"
+                                            aria-hidden="true"></i></div>
+                                </div>
+                                <input type="hidden" ng-model="self.categoryPage"
+                                       ng-init="self.categoryPage=true"/><input type="hidden"
+                                                                                ng-model="self.secondHandSearchPage"
+                                                                                ng-init="self.secondHandSearchPage=false"/>
+                                <div id="ajax-categoryfacet-wrapper" ng-show="self.toggler['multi-category']"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-9 pr" id="js-hook-missing-space-content">
+
+
+                    <table class="table listing-table w100" id="main-listing">
+                        <thead>
+                        <tr class="sorting-row">
+                            <td >İlan Başlığı</td>
+                            <td >Açıklama</td>
+                            <td class="w72"><a><span>Tarih </span></a></td>
+                            <td>İl / İlçe</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="listing8973252" class="listing-list-item pr should-hover bg-white" th:each="post : ${posts}">
+                            <td>
+                                <div class="pr10 fade-out-content-wrapper"><a
+                                        target="_self" class="">
+                                    <img th:src="@{'/img/' + ${post.fileName}}" th:text="${post.title}" id="postImg" th:href="${ '/postShow/' + post.id}"
+                                         alt="Yeni kasa  civic Executive otomatik" /></a></div>
+                            </td>
+                            <td class="pr8 val-top">
+                                <div class="elastic-height-container fade-out-content-wrapper"><h3
+                                        class="crop-after crop-after-20"><a
+                                        class="listing-title val-middle color-black2018">
+
+                                </a></h3>
+                                    <h4 class="crop-after crop-after-40" style="margin-left: 40px;">
+                                        <a th:href="${ '/postShow/' + post.id}" th:text="${post.description}"  class="listing-text word-break" ></a>
+                                    </h4>
+                                </div>
+                            </td>
+                            <td class="listing-text pl8 pr8 tac pr">
+                                <div class=" fade-out-content-wrapper"><a
+                                        href="/ilan/sahibinden-satilik-honda-civic-1-6-i-vtec-executive/yeni-kasa-civic-executive-otomatik/8973252"
+                                        target="_self" class="">
+                                    <span class="" th:text="${post.cityId}"></span>
+                                    <span class="" th:text="${post.townId}" ></span>
+                                </a></div>
+                                <div class="pin-container"><i uib-tooltip="Öne Çıkan" tooltip-placement="top"
+                                                              tooltip-append-to-body="true"
+                                                              class="pin icon-arabam-one-cikan color-yellow2018"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="visible-lg">
+                            <td colspan="8">
+                                <div id="div-gpt-ad-1546598586142-0"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="cb bold tac mt16 pt16">
+                    </div>
+                    <script type="application/ld+json">
+                         { "@context": "http://schema.org", "@type": "Product", "name": "Otomobil", "offers":{ "@type": "AggregateOffer", "highPrice": "40000000", "lowPrice": "0", "offerCount": "37913", "priceCurrency": "TRY" } }
+
+                    </script>
+                    <div id="afscontainer1" class="w100 fl"></div>
+                </div>
+            </div>
+        </div>
+        <div id='div-gpt-ad-1546598493124-0' class="sticky-kulakcik-r3klam skr-scrolls-in-listings"></div>
+        <div  minimize-on-mobile="false"></div>
+        <script type="text/ng-template" id="compareArea.html">
+            <div
+                    class="compare-bar-wrapper" ng-show="ca.cars.length > 0" ng-class="{'minimized': ca.minimized}">
+                <div class="container" ng-show="!ca.minimized">
+                    <div class="row">
+                        <div class="cars-area col-sm-12 col-xs-12">
+                            <div class="car-preview dib pr fl" ng-repeat="car in ca.cars"
+                                 ng-style="{'background-image': ca.getBackgroundImage(car) }">
+                                <div class="close-button pa tac color-black" ng-click="ca.removeCarClicked(car)"><i
+                                        class="fa fa-close"></i></div>
+                            </div>
+                            <div class="compare-alert dib fl ml16 pl16 smaller-text hidden-xs">
+                                <div class="compareMaxLimitWarning"
+                                ><p> Karşılaştırmak için
+                                    bir
+                                    ilan daha ekleyin </p></div>
+                                <div class="compareMaxLimitWarning"><p
+                                        ng-class="{'color-red4': ca.maxLimitError ,'color-black2018' : !ca.maxLimitError}"
+                                        ng-show="ca.cars.length == 3"> En fazla <b>3 ilan</b>
+                                    karşılaştırabilirsiniz<span
+                                            ng-show="ca.maxLimitError">!</span><span
+                                            ng-show="!ca.maxLimitError">.</span></p>
+                                    <p ng-show="ca.maxLimitError"> Dilerseniz karşılaştırma adımına devam edebilir ya da
+                                        eklediğiniz ilanlardan birini çıkartıp yeni bir ilan ekleyebilirsiniz. </p>
+                                    <p ng-show="ca.diffrentCateogryError"> Farklı kategorilerden olan ilanlar
+                                        karşılaştırılamaz!<br/> Dilerseniz karşılaştırma adımına devam edebilir ya da
+                                        eklediğiniz ilanları çıkartıp yeni bir karşılaştırma listesi oluşturabilirsiniz.
+                                    </p></div>
+                            </div>
+                            <div class="buttons-area fr">
+                                <div class="dib mr8">
+                                    <button class="btn btn-black2018 lh40 semi-bold desktop-button btn-clearList"
+                                            ng-click="ca.removeAllFromCompare(ca.cars)" style="width:100%"> Listeyi
+                                        Temizle
+                                    </button>
+                                </div>
+                                <div class="dib"><a
+                                        class="btn btn-red-yellow-2018 lh40 semi-bold desktop-button btn-compare"
+                                        ng-click="ca.goToCompareClicked()" ng-show="ca.cars.length > 1"><i
+                                        class="fa icon-arabam-karsilastir"></i> Karşılaştır </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="ca.minimized">
+                    <div class="">
+                        <button class="btn lh50 expand-button" ng-click="ca.toggleCollapse()">
+                            <span>İlanları Karşılaştır</span><i class="icon-arabam-giden"></i></button>
+                    </div>
+                </div>
+                <button class="btn-collapse" ng-click="ca.toggleCollapse()"><span class="text">Gizle</span><i
+                        class="fa icon-arabam-gelen color-red4"></i></button>
+            </div></script>
+        <script type="text/javascript"> dataLayer.push({'CM_ListAdvertCount': '37913'});
+        dataLayer.push({'CD_Listing_ViewType': 'List'});
+        dataLayer.push({'CD_Listing_PageNumber': '1'}); </script>
+    </div>
+</div>
+<footer id="js-hook-footer-detail-scroll" class=" site-footer ">
+    <div class="footer-area">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="loading" class="ngdialog arabam-modal-wrapper modal-form-loading-container zitop dn"
+     ng-class="{'db': Properties.isLoadingVisible}">
+    <div class="ngdialog-overlay"></div>
+    <div class="ngdialog-content">
+        <div class="border-navy3 p16 tac horizontal-half-padder-plus"
+             ng-class="{'with-border-radius': !isMobile, 'br0 bl0': isMobile}"><p class="p8"><i
+                class="fa fa-spin fa-spinner fa-pulse icon-size-48 color-red4" aria-hidden="true"></i></p>
+            <div class="p8 mid-title font-letter1">LÜTFEN BEKLEYİNİZ</div>
+        </div>
+    </div>
+</div>
+<script> dataLayer.push({'CD_UserID': '4627682'}, {'CD_UserType': 'Bireysel'}, {'CD_DateOfMembership': '20190226'}, {'CD_DateOfLastAdvert': ''}, {'CD_LoginStatus': 'Yes'}, {'CD_UserLifetimeTotalAdverts': '0'}, {'CD_UserActiveAdverts': '0'}, {'CD_IP': '88.241.32.247'}); </script>
+<script src="https://arbimg1.mncdn.com/assets2/dist/node_modules/jquery.min.js?v=20190503152639"></script>
+<script src="https://arbimg1.mncdn.com/assets2/dist/node_modules/angular.min.js?v=20190503152639"></script>
+<script src="https://arbimg1.mncdn.com/assets2/dist/min/all.min.js?v=20190503152639"></script>
+<script src="https://arbimg1.mncdn.com/assets2/dist/js/header/headerController.min.js?v=20190503152639"></script>
+<script> loadScriptsWithCb("//cdn.segmentify.com/segmentify.js", function () {
+    (function (namespace) {
+        window['SegmentifyTrackingObject'] = namespace;
+        window[namespace] = window[namespace] || function () {
+            (window[namespace].q = window[namespace].q || []).push(arguments);
+        };
+        window[namespace].config = {
+            'segmentifyApiUrl': '//dcetr7.segmentify.com',
+            'domain': "arabam.com",
+            'disableNextPage': true,
+            'jq': window.jQuery
+        };
+        if (!!Segmentify) {
+            Segmentify('apikey', 'e68b7b09-9889-4c67-a96c-e8953de30bc8');
+        }
+    })("Segmentify", window);
+}); </script>
+<script> /* Listen to the Initialized event */
+window.lazyLoadReady = new Promise(function (resolve, reject) {
+    window.addEventListener('LazyLoad::Initialized', function (e) { /* Get the instance and puts it in the lazyLoadInstance variable */
+        lazyLoadInstance = e.detail.instance;
+        resolve();
+        return window.lazyLoadReady;
+    }, false);
+});
+window.arabamLazyLoadErrorCallback = function (element) { /* bir gorsel 404 alıyorsa noimage goster */
+    element.src = "https://arbimg1.mncdn.com/ilanfotograflari/noImage/01/01/1/noimage5_160x120.jpg";
+};
+/* Set the lazyload options for async usage */
+lazyLoadOptions = {/* your lazyload options */ callback_error: window.arabamLazyLoadErrorCallback}; </script>
+<script src="https://arbimg1.mncdn.com/assets2/dist/min/all.listing.min.js?v=20190503152639"></script>
+<script id="searchController"
+        src="https://arbimg1.mncdn.com/assets2/dist/js/common/searchController.min.js?v=20190503152639"></script>
+<script type="text/javascript"> /* google tag */
+dataLayer.push({'CD_Pagetype': 'Search Results'});
+collect_tag_params = {'pagetype': 'Search Results'}; </script>
+<link href="https://arbimg1.mncdn.com/assets2/dist/css/listing.css?v=20190503152639" rel="stylesheet"/>
+<div id="js-hook-for-cookie-wrapper-calc" class="cookie-wrapper dn"
+     ng-class="{'dn': !self.showDisclaimer, db: self.showDisclaimer}" ng-controller="cookieController as self"
+     ng-click="self.setCookieDisclaimer()">
+    <div class="cookie-bottom-placeholder">
+        <div class="container">
+            <div class="df">
+                <div class="flex1 cbp-shrink-mobile"><p class="di">Size daha iyi hizmet sunmak için çerezler
+                    kullanıyoruz. arabam.com`u kullanarak çerezlere izin veriyorsunuz.</p><a
+                        id="js-hook-for-cbp-dont-close" href="/yardim/cerez-politikasi" target="_self" class="di"><span
+                        class="bold color-white">Detaylı bilgi</span><i
+                        class="icon-arabam-next color-red4 font-small"></i></a></div>
+                <i class="icon-arabam-exit color-white fr font-default"></i></div>
+        </div>
+    </div>
+</div>
+<div class="overlay-container"></div>
+</body>
+</html>

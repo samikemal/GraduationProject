@@ -1,0 +1,31 @@
+{
+  "hints": [],
+  "groups": [],
+  "properties": [
+    {
+      "name": "spring.datasource.testWhileIdle",
+      "description": "Description for spring.datasource.testWhileIdle.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "spring.datasource.validationQuery",
+      "description": "Description for spring.datasource.validationQuery.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "spring.jpa.hibernate.naming-strategy",
+      "description": "Description for spring.jpa.hibernate.naming-strategy.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "spring.servlet.multipart.max-file-size",
+      "description": "Description for spring.servlet.multipart.max-file-size.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "spring.servlet.multipart.max-request-size",
+      "description": "Description for spring.servlet.multipart.max-request-size.",
+      "type": "java.lang.String"
+    }
+  ]
+}

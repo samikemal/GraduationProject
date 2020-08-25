@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>İlan Detayları</title>
+    <link rel="stylesheet"   th:href="@{/css/design.css}" />
+</head>
+
+<body class="">
+
+
+<div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+        <div class="logo">
+            <a th:href="@{/}" class="simple-text logo-normal">
+                Anasayfa
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li>
+                    <a th:href="@{/myAccount}">
+                        <i class="nc-icon nc-single-02"></i>
+                        <p>Kullanıcı Profili</p>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/notifications}">
+                        <i class="nc-icon nc-bell-55"></i>
+                        <p>Bildirimler</p>
+                    </a>
+                </li>
+                <li class="active ">
+                    <a th:href  ="@{/userAdvisermentList}">
+                        <i class="nc-icon nc-tile-56"></i>
+                        <p>İlan Listesi</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" href="myAccount.html">İlan </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a th:href="@{/logOut}" class="nav-link btn-rotate" >Logout
+                            <p>
+                                <span class="d-lg-none d-md-block">Account</span>
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <!-- <div class="panel-header panel-header-sm">
+
+
+  </div> -->
+        <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <center><div class="card">
+                        <div class="card-header">
+                        </div>
+                        <div class="image">
+                        </div>
+                    </div>
+                    </center>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Tekliflerim</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled team-members">
+                                <li>
+                                    <div class="row">
+
+                                        <div class="col-md-7 col-7">A Mağazası :
+                                            <span class="text-muted">
+                        <small>123.00</small>
+                      </span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row" style="margin-top:5px">
+                                        <div class="col-md-7 col-7">B Mağazası :
+                                            <span class="text-muted">
+                        <small>150.00</small>
+                      </span>
+                                        </div>
+                                        <div class="col-md-3 col-3 text-right">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row" style="margin-top:5px;">
+                                        <div class="col-md-7 col-7">C Mağazası :
+                                            <span class="text-muted">
+                        <small>180.00</small>
+                      </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-8"  >
+                        <div class="card card-user">
+                            <div class="card-header">
+                             <h5 class="card-title">İlanı Güncelle</h5>
+                        </div>
+                            <div class="card-body">
+                                <form th:action="@{/editPost}" method="post" th:object="${postForm}" >
+                                <div class="row">
+                                    <div class="col-md-5 pr-1">
+                                        <div class="form-group">
+                                            <label>İlan Tarihi</label>
+                                            <input class="form-control" type="text" style="background-color:white;"  name="first_name" disabled=""  th:value="${posts.createdAt}" />
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 pr-1">
+                                        <div class="form-group">
+                                            <label>İlan Başlığı</label>
+                                            <input class="form-control" type="text" style="background-color:white;"  name="first_name"  th:field="*{title}" th:placeholder="${posts.title}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 pr-1">
+                                        <div class="form-group">
+                                            <label> İlan Açıklaması</label>
+                                            <input class="form-control" type="text" style="background-color:white;"  name="first_name" th:value="${posts.description}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 pr-1">
+                                        <div class="form-group">
+                                            <label>Fotoğraf </label>
+                                            <div class="form-control" id="fileName" style="background:#dce4ec;color:#666666;padding:0 10px;height:40px;line-height:40px;">Fotoğraf Yükle</div>
+                                            <input type="file" class="form-control" name="chooseFile" id="chooseFile"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 pr-1">
+                                        <div class="form-group">
+                                            <label> İlan Statüsü</label>
+                                            <select class="form-control" >
+                                                <option value="0"> Durum Belirle</option>
+                                                <option value="1">İlanı Kapat</option>
+                                                <option value="2">İlanı Aç </option>
+                                                <option value="3">İlanı Beklet</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="update ml-auto mr-auto">
+
+                                        <button type="submit" class="btn btn-primary btn-round" style="margin-right:450px;">İlanı Güncelle</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer footer-black  footer-white ">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="footer-nav">
+                        <ul>
+                        </ul>
+                    </nav>
+                    <div class="credits ml-auto">
+              <span class="copyright">
+                ©
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+</body>
+
+</html>

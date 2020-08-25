@@ -1,0 +1,684 @@
+
+<!doctype html>
+<!--[if IE 8]><html class="ie8 " lang="tr"><![endif]-->
+<!--[if IE 9]><html class="ie9 " lang="tr"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="" lang="tr" xmlns:th="http://www.w3.org/1999/xhtml"><!--<![endif]-->
+<head>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+    </script>
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta id="Content-Language" http-equiv="Content-Language" content="tr"/>
+    <meta name="rating" content="general"/>
+
+    <meta name="robots" content="NOODP,index,follow"/>
+    <meta name="revisit-after" content="1 Days"/>
+    <link rel="icon" href="https://www.sahibinden.com/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://www.sahibinden.com/favicon.ico" type="image/x-icon"/>
+    <link rel="search" type="application/opensearchdescription+xml" title="sahibinden.com" href="https://www.sahibinden.com/static/opensearch"/>
+
+    <link rel="alternate" hreflang="en" href="https://www.sahibinden.com/signup/"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <link href="https://plus.google.com/111732612024670853903" rel="publisher"/>
+    <script type="text/javascript">
+        window.skipJQueryInlineBlockNeedsLayoutTest = true;
+        var __iwop=[];(function(){for(var n in window){__iwop.push(n);}})();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        function getBanner(zoneId, extraParams, targetId) {
+
+        };
+        /*]]>*/
+
+
+        var $selectElement = $("#town");
+        var newOptions = '';
+        $(document).ready(function(){
+            $("#city").change(function(){
+                $.ajax({
+                    url: "/district/"+$(this).val(),
+                    type: 'GET',
+                    dataType: 'json',
+
+                    success: function(data) {
+                        console.log(data);
+                        $.each(data,function (i,deneme) {
+                            $("#town").append('<option value="' + deneme.id + '">' + deneme.districtname + '</option>');
+
+                        })
+
+                    }
+                });
+            });
+
+            $("#town").change(function(){
+                $.ajax({
+                    url: "/mahalle/"+$(this).val(),
+                    type: 'GET',
+                    dataType: 'json',
+
+                    success: function(data) {
+                        console.log(data);
+                        $.each(data,function (i,deneme) {
+                            $("#quarter").append('<option value="' + deneme.id + '">' + deneme.mahalle_name + '</option>');
+
+                        })
+
+                    }
+                });
+            });
+        });
+
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+        });
+    </script>
+    <script type="text/javascript">
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+
+        var googletagLoader = function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+                '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        };
+
+
+        googletagLoader();
+    </script>
+
+    <script type="text/javascript" src="https://www.sahibinden.com/assets/cookiePolicy:1.js" async="async"></script>
+    <meta property="al:ios:url" content="sahibinden://" />
+    <meta property="al:ios:app_store_id" content="418535251" />
+    <meta property="al:ios:app_name" content="sahibinden.com mobil" />
+    <meta property="al:android:url" content="sahibinden://" />
+    <meta property="al:android:package" content="com.sahibinden" />
+    <meta property="al:android:app_name" content="sahibinden.com" /><title>Üye Ol</title>
+
+    <!-- Real User Monitoring -->
+    <script language="javascript">
+        window.shbdn_rum = window.shbdn_rum || {};
+        window.shbdn_rum.requestType = "GENERIC";
+    </script>
+    <link href="https://s0.shbdn.com/assets/common:b19b4be09a7eb8474b067646a8df6eae.css" media="screen, print" rel="stylesheet" type="text/css"/>
+    <link href="https://s0.shbdn.com/assets/register:4ded60e93bb6e2ebaeb7786a8e47df5f.css" media="screen, print" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        var SahibindenCfg = SahibindenCfg || {};
+        SahibindenCfg.searchBaseUrl = '/arama';
+        SahibindenCfg.defaultSorting = '';
+
+
+        SahibindenCfg.facetedSearch = {};
+        SahibindenCfg.facetedSearch.ajaxTimeout = 60000;
+        SahibindenCfg.facetedSearch.cityListUrl = '/ajax/search/locationFacets';
+        SahibindenCfg.facetedSearch.citySearchUrl = '/ajax/location/search/city';
+
+
+
+        SahibindenCfg.widgets = {};
+        SahibindenCfg.enableWidget = function(widget) { this.widgets[widget] = true; };
+        SahibindenCfg.isWidgetEnabled = function(widget) { return this.widgets[widget] === true; };
+    </script></head>
+<body>
+
+
+
+
+<div id="container">
+    <div class="registration-container ">
+        <h1>Üye Ol</h1>
+        <div class="registration">
+            <div class="user-register-form form-style-wrapper">
+                <form id="registerForm" action="/kayit/" method="post">
+
+
+                    <div class="registration-type ">
+
+
+
+
+                        <input type="radio"
+                               id="corporate"
+                               name="registrationType"
+                               value="SUPER"
+                               checked = "true"
+                        />
+                        <label for="corporate">
+                            Kurumsal Üyelik<a href="#"
+                                              class="tipitip-trigger tipitip-icon"
+                                              title="Emlak, vasıta, ürün alım satımı ile ilgili ticaret yapan kullanıcılarımızın Kurumsal Üye olması gereklidir.">
+                        </a>
+                        </label>
+
+                    </div>
+                    <!-- ad & soyad -->
+                    <div class="split-form">
+                        <!-- ad -->
+                        <dl>
+                            <dt>
+                                <label for="name">Adınız</label></dt>
+
+                            <dd class="mbdef">
+                                <input id="name" name="name" tabindex="1" type="text" class="input-text required" value=""/></dd>
+                        </dl>
+
+                        <!-- soyad -->
+                        <dl>
+                            <dt>
+                                <label for="surname">Soyadınız</label></dt>
+
+                            <dd class="mbdef">
+                                <input id="surname" name="surname" tabindex="2" type="text" class="input-text required" value=""/></dd>
+                        </dl>
+                    </div>
+
+                    <!-- eposta adresi-->
+                    <dl>
+                        <dt>
+                            <label for="email">E-Posta Adresiniz<a href="#" class="tipitip-trigger tipitip-icon" title="E-posta adresiniz güncel olarak kullandığınız bir adres olmalı. Size özel tüm bilgilendirmeleri bu adresinize göndereceğiz."></a>
+                            </label></dt>
+
+                        <dd class="mbdef">
+                            <input id="email" name="email" title="Kullanmakta olduğunuz ge&ccedil;erli bir e-posta adresi giriniz. &Uuml;yeliğinizi başlatmak i&ccedil;in e-posta adresinize bir onay linki g&ouml;ndereceğiz." tabindex="3" data-close-event="blur" data-open-event="focus" type="text" class="input-text required tipitip-trigger" value=""/></dd>
+                    </dl>
+
+                    <!-- şifre  -->
+                    <dl>
+                        <dt>
+                            <label for="password">Şifre</label></dt>
+
+                        <dd class="mbdef">
+                            <div class="password-input-wrapper">
+                                <input id="password" name="password" title="Şifreniz en az 8 karakterden oluşmalı, harf ve rakam i&ccedil;ermelidir." tabindex="4" data-close-event="blur" data-open-event="focus" type="password" class="input-text required tipitip-trigger" value="" autocomplete="new-password"/><a href="javascript:;" class="show-hide-password" data-show-text="Göster" data-hide-text="Gizle">Göster</a>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!-- Kurumsal Üyelik-->
+                    <dl class="corporate-input">
+                        <dt>
+                            <label for="mobile">
+                                Cep Telefonunuz
+                            </label></dt>
+
+                        <dd class="mbdef with-icon">
+                            <input
+                                    class="input-text mobile numericInput"
+                                    type="text"
+                                    name="corporateForm.mobilePhone"
+                                    id="mobile"
+                                    placeholder="(5__) _______"
+                                    value=""
+                            />
+                        </dd>
+                    </dl>
+
+                    <dl class="corporate-input sector">
+                        <dt>
+                            <label for="category">
+                                Faaliyet Alanınız
+                            </label>
+                        </dt>
+
+                        <dd class="mbdef">
+                            <select
+                                    id="category"
+                                    name="corporateForm.parentProductId"
+
+                            >
+                                <option value="">Seçiniz</option>
+                                <option
+                                        for="Emlak"
+                                        value="200002"
+                                        data-title="Emlak"
+                                        data-sub-categories="[Konut]"
+
+                                >
+                                    Emlak</option>
+                                <option
+                                        for="Günlük Kiralık "
+                                        value="200020"
+                                        data-title="Günlük Kiralık "
+                                        data-sub-categories="[Günlük Kiralık]"
+
+                                >
+                                    Günlük Kiralık </option>
+                                <option
+                                        for="Vasıta"
+                                        value="200011"
+                                        data-title="Vasıta"
+                                        data-sub-categories="[Otomobil]"
+
+                                >
+                                    Vasıta</option>
+                                <option
+                                        for="Kiralık Araç"
+                                        value="200010"
+                                        data-title="Kiralık Araç"
+                                        data-sub-categories="[Kiralık Araçlar]"
+
+                                >
+                                    Kiralık Araç</option>
+                                <option
+                                        for="Motosiklet"
+                                        value="200012"
+                                        data-title="Motosiklet"
+                                        data-sub-categories="[Motosiklet]"
+
+                                >
+                                    Motosiklet</option>
+                                <option
+                                        for="İş Makinesi  Sanayi"
+                                        value="200013"
+                                        data-title="İş Makinesi  Sanayi"
+                                        data-sub-categories="[İş Makineleri]"
+
+                                >
+                                    İş Makinesi</option>
+                                <option
+                                        for="Yedek Parça, Aksesuar, Donanım  Tuning"
+                                        value="200009"
+                                        data-title="Yedek Parça, Aksesuar, Donanım  Tuning"
+                                        data-sub-categories="[Otomotiv Ekipmanları]"
+
+                                >
+                                    Yedek Parça</option>
+                                <option
+                                        for="Alışveriş"
+                                        value="200003"
+                                        data-title="Alışveriş"
+                                        data-sub-categories="[Bilgisayar]"
+
+                                >
+                                    Alışveriş</option>
+                                <option
+                                        for="Hayvanlar Alemi"
+                                        value="200004"
+                                        data-title="Hayvanlar Alemi"
+                                        data-sub-categories="[Evcil Hayvanlar]"
+
+                                >
+                                    Hayvanlar Alemi</option>
+                            </select>
+                        </dd>
+                    </dl>
+
+
+
+                    <dl class="corporate-input">
+                        <dt>
+                            <label for="limitedCompanyName">
+                                Ticari Ünvan
+                            </label></dt>
+
+                        <dd class="mbdef">
+                            <input
+                                    type="text"
+                                    name="corporateForm.companyName"
+                                    id="limitedCompanyName"
+                                    class="input-text tipitip-trigger"
+                                    data-open-event="focus"
+                                    data-close-event="blur"
+                                    title="Ticaret Odasına kayıtlı, ticari faaliyetlerinizi yürütürken resmi kurumlarda kullandığınız unvanınızı giriniz. Faturalarınız burada belirteceğiniz ticari unvan adına düzenlenecektir."
+                                    value=""
+                                    readonly="false"/>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="corporate-input">
+                        <dt>
+                            <label for="city">
+                                İl
+                            </label></dt>
+
+                        <dd class="mbdef">
+                            <select id="city" name="corporateForm.city">
+                                <option th:each="province : ${provinces}" th:value="${province.id}" th:text="${province.provincename}"></option>
+                            </select>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="corporate-input">
+                        <dt>
+                            <label for="town">
+                                İlçe
+                            </label></dt>
+
+                        <dd class="mbdef">
+                            <select
+                                    class="town-input"
+                                    id="town"
+                                    name="corporateForm.town"
+                                    data-selected=""
+                            >
+
+                            </select>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="corporate-input quarter-area">
+                        <dt>
+                            <label for="town">
+                                Mahalle
+                            </label></dt>
+
+                        <dd class="mbdef">
+                            <select
+                                    class="quarter-input"
+                                    id="quarter"
+                                    name="corporateForm.quarter"
+                                    data-selected=""
+                            >
+                                <option>Seçiniz</option>
+                            </select>
+
+                            <input type="hidden" id="district" name="corporateForm.district" value=""/>
+
+                        </dd>
+                    </dl>
+
+                    <dl class="corporate-input">
+                        <dt>
+                            <label for="address">
+                                Adres Detayı
+                            </label></dt>
+
+                        <dd class="mbdef">
+                            <textarea id="address"
+                                      name="corporateForm.address"
+                                      class="tipitip-trigger"
+                                      data-open-event="focus"
+                                      data-close-event="blur"
+                                      minlength="20"
+                                      maxlength="250"
+                                      title="Firmanızın bulunduğu adres detayını giriniz, tarafımızdan gönderilecek her türlü evrak bu adrese gönderilecektir."
+
+                            ></textarea>
+                        </dd>
+                    </dl>
+
+
+
+                    <div class="split-form corporate-input">
+
+                        <dl class="private-company">
+                            <dt>
+                                <label for="idNumber">
+                                    TC Kimlik No
+                                </label></dt>
+
+                            <dd class="mbdef ">
+                                <input id="idNumber" name="corporateForm.idNumber" title="11 haneli TC kimlik numaranızı giriniz." data-close-event="blur" data-open-event="focus" type="text" class="input-text numericInput tipitip-trigger" value="" maxlength="11"/></dd>
+                        </dl>
+
+                        <dl class="limited-company">
+                            <dt>
+                                <label for="taxNumber">
+                                    Vergi No
+                                </label></dt>
+
+                            <dd class="mbdef ">
+                                <input id="taxNumber" name="corporateForm.taxNumber" title="Ticari unvanınıza ait 10 haneli vergi numaranızı giriniz." data-close-event="blur" data-open-event="focus" type="text" class="input-text numericInput tipitip-trigger" value="" maxlength="10"/></dd>
+                        </dl>
+                    </div>
+
+                    <div class="split-form corporate-input phones">
+                        <dl>
+                            <dt>
+                                <label for="phone">
+                                    Sabit Telefon 1
+                                </label></dt>
+
+                            <dd class="mbdef with-icon split">
+                                <input id="phone" name="corporateForm.firstPhone" title="Firmanıza kayıtlı sabit telefon numaranızı giriniz." data-close-event="blur" data-open-event="focus"  placeholder="(___) _______" type="text" class="input-text phone numericInput tipitip-trigger" value=""/></dd>
+                        </dl>
+
+
+                    </div>
+                    <!-- Kurumsal Üyelik-->
+
+                    <!-- captcha -->
+
+
+                    <!-- kullanıcı sözleşmesi -->
+
+
+                    <!-- buton -->
+                    <div class="sign-up-container">
+                        <a class="btn" id="signUpButton" tabindex="8">Üye Ol</a>
+                    </div>
+
+                </form></div>
+
+
+        </div>
+
+        <!-- confirm dialog -->
+        <div class="disable">
+            <div id="emailConfirmation" class="email-confirmation">
+                <form id="confirmMailForm" name="confirmMailForm">
+                    <div class="popup-content">
+                        <p>Size doğrulama e-postası göndereceğiz. <br/> Lütfen e-posta adresinizi doğru yazdığınızdan emin olun.</p>
+                        <div class="email-container">
+                            <div class="view-email">
+                                <span id="viewEmail"></span>
+                            </div>
+                            <div class="edit-email">
+                                <input id="confirmEmail" name="confirmEmail" class="inputText required" type="email" />
+                            </div>
+                        </div>
+                        <div class="hidden-inputs"></div>
+                    </div>
+
+                    <div class="popup-buttons">
+                        <a id="confirmEdit" href="#" class="btn btn-alternative btn-form">Düzelt</a>
+                        <a id="confirmSubmit" class="btn btn-form" href="#">Tamam</a>
+                    </div>
+                </form>
+            </div></div>
+    </div>
+</div>
+<div class="footerContainer footer-container">
+    <div class="footer phdef pvdef clearfix">
+        <ul class="footerMenu footer-menu">
+            <li>
+                <h2>Kurumsal</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.sahibinden.com/kurumsal/hakkimizda/">
+                            Hakkımızda</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/kurumsal/reklam-filmleri/">
+                            Medya İletişimi ve Görseller</a>
+                    </li>
+                    <li>
+                        <a href="https://insankaynaklari.sahibinden.com/">
+                            İnsan Kaynakları</a>
+                    </li>
+                    <li>
+                        <a rel="nofollow no-follow" href="https://www.sahibinden.com/kurumsal/iletisim/">İletişim</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h2>Hizmetlerimiz</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.sahibinden.com/doping-tanitim/">
+                            Doping</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/guvenli-e-ticaret">
+                            Güvenli e-Ticaret (GeT)</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/toplu-urun-girisi">
+                            Toplu Ürün Girişi</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/sahibinden-dogal-reklam/">
+                            sahibinden Doğal Reklam</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/mobil">
+                            Mobil</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h2>Mağazalar</h2>
+                <ul>
+                    <li>
+                        <a href="https://banaozel.sahibinden.com/magazam">
+                            Mağazam</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/magaza-kategori-secimi">
+                            Mağaza Açmak İstiyorum</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/neden-magaza">
+                            Neden Mağaza?</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/magaza-fiyatlari">Maliyeti Nedir?</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/emlakofisim/">
+                            Emlak Ofisim</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h2>Gizlilik ve Kullanım</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.sahibinden.com/guvenli-alisverisin-ipuclari/">
+                            Güvenli Alışverişin İpuçları</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/sozlesmeler/kullanim-kosullari-35">
+                            Kullanım Koşulları</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/sozlesmeler/bireysel-uyelik-sozlesmesi-0">
+                            Üyelik Sözleşmesi</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/sozlesmeler/ek-2-gizlilik-politikasi-38">
+                            Gizlilik Politikası</a>
+                    </li>
+                    <li>
+                        <a href="https://www.sahibinden.com/sozlesmeler/kisisel-verilerin-korunmasi-58">
+                            Kişisel Verilerin Korunması</a>
+                    </li>
+                    <li>
+                        <a href="https://yardim.sahibinden.com/hc/tr">
+                            Yardım ve İşlem Rehberi</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="followUs follow-us">
+                <h2>Bizi Takip Edin</h2>
+                <ul>
+                    <li>
+                        <a title="Facebook" target="_blank"
+                           href="https://www.facebook.com/sahibindencom">Facebook</a>
+                    </li>
+                    <li>
+                        <a title="Twitter" target="_blank"
+                           href="https://www.twitter.com/sahibindencom">Twitter</a>
+                    </li>
+                    <li>
+                        <a title="Linkedin" target="_blank"
+                           href="https://www.linkedin.com/company/sahibinden-com">Linkedin</a>
+                    </li>
+                    <li>
+                        <a title="Google+" target="_blank"
+                           href="https://plus.google.com/+sahibindencom">Google+</a>
+                    </li>
+                    <li>
+                        <a title="Instagram" target="_blank"
+                           href="https://www.instagram.com/sahibindencom/">Instagram</a>
+                    </li>
+                    <li>
+                        <a title="Youtube" target="_blank"
+                           href="https://www.youtube.com/user/sahibindencom">Youtube</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="clearfix">
+            <ul class="contact-menu">
+                <li class="call-center">
+                    <p>7/24 Müşteri Hizmetleri</p>
+                    <span>0 850 222 44 44</span>
+                </li>
+                <li class="help-center">
+                    <p>Destek Merkezi</p>
+                    <a href="https://www.sahibinden.com/destek">sahibinden.com/destek</a>
+                </li>
+                <li class="store-logos">
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.sahibinden" class="store-logo googleplay"></a><a target="_blank" href="https://itunes.apple.com/tr/app/sahibinden.com-mobil/id418535251?mt=8" class="store-logo apple"></a>
+                </li>
+            </ul>
+        </div>
+
+        <p class="warningText warning-text">
+            sahibinden.com'da yer alan kullanıcıların oluşturduğu tüm içerik, görüş ve bilgilerin doğruluğu, eksiksiz ve değişmez olduğu, yayınlanması ile ilgili yasal yükümlülükler içeriği oluşturan kullanıcıya aittir. Bu içeriğin, görüş ve bilgilerin yanlışlık, eksiklik veya yasalarla düzenlenmiş kurallara aykırılığından sahibinden.com hiçbir şekilde sorumlu değildir. Sorularınız için ilan sahibi ile irtibata geçebilirsiniz. <br /> Yer Sağlayıcı Belge No : 581</p>
+
+        <div class="postClassifiedFreeText post-classified-free-text">
+            <p>(*) Limitli adetlerde ve belirli kategorilerde</p>
+            <a rel="nofollow" href="/signup/" title="English" class="language-selection-link">
+                English</a>
+        </div>
+        <ul class="mobil footer-nav disable">
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="">Masaüstü Görünüm</a></li>
+        </ul>
+        <p class="copyright mobil">
+            Copyright © 2000-2018 sahibinden.com</p>
+    </div>
+</div>
+<script id="gaPageViewTrackingData" type="text/javascript">
+    var pageTrackData = {"trackPageview":[],"customVars":[{"index":1,"name":"site_preference","value":"desktop","scope":2}],"trackEvent":[],"dmpData":[],"transactionObject":null,"transactionUserItem":null,"trackCurrentPage":true,"dc":"gayrettepe","homepageDesign":null,"route":"register","view":"","viewName":"","query":"","categories":[],"locations":[],"classified":null,"searchResult":null,"storeSubdomain":null,"successfulPaymentWithSavedCC":false};
+</script>
+<div id="gaPageViewTrackingJson" data-json="{&quot;trackPageview&quot;:[],&quot;customVars&quot;:[{&quot;index&quot;:1,&quot;name&quot;:&quot;site_preference&quot;,&quot;value&quot;:&quot;desktop&quot;,&quot;scope&quot;:2}],&quot;trackEvent&quot;:[],&quot;dmpData&quot;:[],&quot;transactionObject&quot;:null,&quot;transactionUserItem&quot;:null,&quot;trackCurrentPage&quot;:true,&quot;dc&quot;:&quot;gayrettepe&quot;,&quot;homepageDesign&quot;:null,&quot;route&quot;:&quot;register&quot;,&quot;view&quot;:&quot;&quot;,&quot;viewName&quot;:&quot;&quot;,&quot;query&quot;:&quot;&quot;,&quot;categories&quot;:[],&quot;locations&quot;:[],&quot;classified&quot;:null,&quot;searchResult&quot;:null,&quot;storeSubdomain&quot;:null,&quot;successfulPaymentWithSavedCC&quot;:false}"></div>
+
+<script type="text/javascript">
+    var saGemiusKey = 'bPeQ_0eeWvPc3Iqa7jJQEcUGjy2NXYOoUvs1RDjCPDH.v7';
+</script>
+<noscript>
+    <img src="https://b.scorecardresearch.com/p?c1=2&amp;c2=9543297&amp;cv=2.0&amp;cj=1" alt="scorecardresearch"/>
+</noscript>
+<script src="https://s0.shbdn.com/assets/gemius:fe0a55a10380725904fad1feea2c7ef3.js" type="text/javascript"> </script>
+<script src="https://s0.shbdn.com/assets/common:f35fa11154c084699bed9d7b6a016178.js" type="text/javascript"> </script>
+<script src="https://s0.shbdn.com/assets/searchSuggestion:39900105bc95c968fbf64b8109239b90.js" type="text/javascript"> </script>
+<script src="https://s0.shbdn.com/assets/register:29dd4a207849220ee3cf1ce35b3ae18d.js" type="text/javascript"> </script>
+<script src="https://s0.shbdn.com/assets/lastScripts:cfa5d49129048f4e398f292f2accea2c.js" type="text/javascript"> </script>
+</body>
+</html>

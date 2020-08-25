@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="noindex, nofollow"/>
+
+    <title>Simple Bootstrap Registration Form - Bootsnipp.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+    <style type="text/css">
+        @import "font-awesome.min.css";
+        @import "font-awesome-ie7.min.css";
+        /* Space out content a bit */
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        /* Everything but the jumbotron gets side spacing for mobile first views */
+        .header,
+        .marketing,
+        .footer {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        /* Custom page header */
+        .header {
+            border-bottom: 1px solid #e5e5e5;
+        }
+        /* Make the masthead heading the same height as the navigation */
+        .header h3 {
+            padding-bottom: 19px;
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: 40px;
+        }
+
+        /* Custom page footer */
+        .footer {
+            padding-top: 19px;
+            color: #777;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        /* Customize container */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 730px;
+            }
+        }
+        .container-narrow > hr {
+            margin: 30px 0;
+        }
+
+        /* Main marketing message and sign up button */
+        .jumbotron {
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .jumbotron .btn {
+            padding: 14px 24px;
+            font-size: 21px;
+        }
+
+        /* Supporting marketing content */
+        .marketing {
+            margin: 40px 0;
+        }
+        .marketing p + h4 {
+            margin-top: 28px;
+        }
+
+        /* Responsive: Portrait tablets and up */
+        @media screen and (min-width: 768px) {
+            /* Remove the padding we set earlier */
+            .header,
+            .marketing,
+            .footer {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            /* Space out the masthead */
+            .header {
+                margin-bottom: 30px;
+            }
+            /* Remove the bottom border on the jumbotron for visual effect */
+            .jumbotron {
+                border-bottom: 0;
+            }
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        function getBanner(zoneId, extraParams, targetId) {
+
+        };
+        /*]]>*/
+
+
+        var $selectElement = $("#town");
+        var newOptions = '';
+        $(document).ready(function(){
+            $("#city").change(function(){
+                $.ajax({
+                    url: "/register/town/"+$(this).val(),
+                    type: 'GET',
+                    dataType: 'json',
+
+                    success: function(data) {
+                        console.log(data);
+                        $.each(data,function (i,deneme) {
+                            $("#town").append('<option value="' + deneme.id + '">' + deneme.townName + '</option>');
+
+                        })
+
+                    }
+                });
+            });
+
+            $("#town").change(function(){
+                $.ajax({
+                    url: "/register/district/"+$(this).val(),
+                    type: 'GET',
+                    dataType: 'json',
+
+                    success: function(data) {
+                        console.log(data);
+                        $.each(data,function (i,deneme) {
+                            $("#quarter").append('<option value="' + deneme.id + '">' + deneme.districtName + '</option>');
+
+                        })
+
+                    }
+                });
+            });
+        });
+
+
+    </script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        window.alert = function(){};
+        var defaultCSS = document.getElementById('bootstrap-css');
+        function changeCSS(css){
+            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />');
+            else $('head > link').filter(':first').replaceWith(defaultCSS);
+        }
+        $( document ).ready(function() {
+            var iframe_height = parseInt($('html').height());
+            window.parent.postMessage( iframe_height, 'https://bootsnipp.com');
+        });
+    </script>
+</head>
+<body style="background-color: #333231">
+<div class="container" style="background-color: rgba(253,255,255,0)">
+    <h1 class="well">Kamusal Üyelik</h1>
+    <div class="col-lg-12 well">
+        <div class="row">
+            <form th:action="@{/register/save}" method="post"  th:object="${individualRegisterForm}">
+                <div class="col-sm-12">
+                    <div class="row" style="background-color: rgba(255,0,0,0)">
+                        <div class="col-sm-6 form-group">
+                            <label>* İsim:</label>
+                            <input type="text"  class="form-control" th:field="*{name}"/>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>* Soyisim:</label>
+                            <input type="text"  class="form-control" th:field="*{lastName}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>* Telefon Numarası:</label>
+                        <input type="text"  class="form-control" th:field="*{phoneNumber}"/>
+                    </div>
+                    <div class="form-group">
+                        <label>* Mail Adres:</label>
+                        <input type="text"  class="form-control" th:field="*{mail}"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+                            <label>* City:</label>
+                            <select id="city" class="form-control" th:field="*{city}">
+                                <option th:each="city : ${cities}" th:value="${city.id}" th:text="${city.cityName}"></option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label>* İlçe:</label>
+                            <select id="town" class="form-control" th:field="*{town}">
+                                <option value="hasan" >Seçiniz</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 form-group">
+                            <label>* Mahalle:</label>
+                            <select id="quarter" class="form-control" th:field="*{district}">
+                                <option value="hasan" >Seçiniz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>* AÇIK ADRES:</label>
+                        <textarea  rows="3" class="form-control" th:field="*{line}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>* Şifre:</label>
+                        <input type="password"  class="form-control" th:field="*{password}"/>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-info">Ücretsiz Üye Ol</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

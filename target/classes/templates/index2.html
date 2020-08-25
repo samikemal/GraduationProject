@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hizmet Köprüsü</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8" />
+    <link rel="alternate" href=" &lt;link rel=&quot;alternate&quot; href=&quot;android-app://com.dogan.arabam/arabam/showroom&quot; /&gt; "/>
+    <meta property="og:image"
+          content="https://arbimg1.mncdn.com/assets/dist/img/arabam-faceshare.png?v=20190225115221"/>
+    <link rel="canonical" href="https://www.arabam.com/"/>
+    <link rel="preconnect" href="https://fonts.google.com"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=latin-ext" rel="stylesheet"/>
+    <link rel="stylesheet"   th:href="@{/css/index.css}"/>
+    <meta charset="UTF-8" />
+
+
+</head>
+<body data-is-ie="False" style="margin-top: 20px;">
+<div id="fb-root"></div>
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MGPD5L" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe>
+</noscript>
+
+<div id="cookie-disclamer-wrapper" class="dn">
+    <div class="container">
+        <div class="df df-jcsbetween">
+            <a class="close-button" href="javascript:;"><i class="icon-arabam-exit"></i></a></div>
+    </div>
+    <div class="cookieOverlay"></div>
+</div>
+    <div id="wrapper">
+    <div id="header-notification-bar">
+    </div>
+    <div id="loading-wrapper-for-whole-requests">
+        <div class="inner">
+            <div class="icon-wrapper"><i class="icon-arabam-spinner"></i></div>
+            <div class="message"> Lütfen bekleyiniz...</div>
+            <p class="extra-messages dn"></p></div>
+    </div>
+    <header id="header" class="header-desktop" showNavigation='true'>
+        <div class="container">
+            <div class="row">
+                <div class="headerBar">
+                    <a  target="_self" href='/' title="teklifimvar.com" id="arabam-header-logo" >
+                    <img  class="menu" href="/"  target="_self" th:src="@{/img/sepet.png}"   src="sepet.png"/>
+                    </a>
+
+                    <div id="header-search-wrapper" class="search">
+                        <div class="search-container "><i class="icon icon-arabam-search search-icon-container"></i>
+                            <div class="search-input-container">
+                                <input type="text" id="search-suggestion-trigger-input"
+                                                                       class="search-input"
+                            />
+                                <div id="suggestion-wrapper" class="search-result">
+                                    <div id="suggestions-area"></div>
+                                </div>
+                            </div>
+                            <div class="search-button"><span> ARA </span></div>
+                        </div>
+                    </div>
+                    <div class="header-actions-container">
+                        <div id="header-favorites-wrapper">
+                            <div class="header-badge">
+                                <div class="inner"></div>
+                            </div>
+                            <i class="icon-arabam-fav"></i></div>
+                        <div id="header-notification-wrapper" class="dn">
+                            <div class="first-wrapper">
+                                <div class="header-badge">
+                                    <div class="inner"></div>
+                                </div>
+                                <i class="icon-arabam-notification"></i></div>
+                            <div class="notification-dropdown">
+                                <div class="inner-wrapper">
+                                    <ul class="notifications-list"></ul>
+                                    <div class="nothing-found dn"><p class="message">Yeni bildiriminiz
+                                        bulunmamaktadır.</p>
+                                        <div class="big-icon-wrapper"><i class="icon-arabam-notification"></i></div>
+                                    </div>
+                                    <div class="loading">
+                                        <div class="icon-wrapper"><i class="icon-arabam-spinner"></i></div>
+                                        <p>Bildirimleriniz yükleniyor...</p></div>
+                                    <div class="button-all-notifications"><a href='/bildirimler'> Tüm Bildirimler </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div   id="header-non-authenticated-navigator" class="dn">
+                            <a href="/chooseLogin" th:if="${isLogin eq false}" rel="nofollow"> Giriş Yap </a><span th:if="${isLogin eq false}">/</span>
+                            <a href="/chooseRegister" th:if="${isLogin eq false}" rel="nofollow"> Üye Ol </a>
+                            <a th:if="${isLogin eq true}" th:text="${customerData.name}"   th:href="${ '/myAccount/' + customerData.userId}"  rel="nofollow" ></a>
+                            <span th:if="${isLogin eq true}">/</span>
+                            <a th:if="${isLogin eq true}" href="/logOut"  rel="nofollow" >Çıkış Yap </a>
+                        </div>
+                        <a rel="nofollow" id="header-create-new-advert-button"
+                                                   href='/post' th:if="${userType eq 'company'}" >  </a>
+                        <a rel="nofollow" id="header-create-new-advert-button" class="btn btn-yellow2018 getAdvertBtn"
+                           href='/post' th:if="${userType ne 'company'}"> Ücretsiz İlan Ver </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-overlay"></div>
+    </header>
+    <div class="min-md-width new-gray">
+        <div class="container pt10 mb16">
+            <div class="df row showcase-container">
+                <div class=" categories-container" style="width: 210px;">
+                    <div class="categories-scroll ss-container" ss-container="">
+                        <div class="ss-wrapper">
+                            <div class="ss-content">
+                                <ul class="category-turbo-section">
+                                    <li>
+
+                                            <span class="cateogry-name bold">Kategoriler</span>
+                                     </li></ul>
+                                <ul class="category-section" th:if="${categories ne null}">
+                                    <li th:each="category : ${categories}"><a th:href="'/cat/'+ ${category.categoryName}" class="category-link">
+                                        <span class="cateogry-name"   th:value="${category.id}" th:text="${category.categoryName}"></span></a></li>
+                                </ul>
+                                <ul class="category-section" th:if="${subCategories ne null}">
+                                    <li th:each="category : ${categories}"><a th:href="'/cat/'+ ${category.categoryName}"
+                                                                              class="category-link">
+                                        <span class="cateogry-name"   th:value="${category.id}" th:text="${category.categoryName}"></span></a></li>
+                                </ul>
+                            </div></div><div class="ss-scroll" style="height: 73.8832%; top: 26.1168%; right: -176px;"></div></div></div>
+                <div class="df ads-shortcuts-container">
+                    <div class="w100 ad-container">
+                        <div class="jellybean-wrapper jw-with-transparent-bg-gradient">
+                            <div class="visible-lg">
+                                <div class="dfp-main jellybean-1920">
+                                    <div id="div-gpt-ad-1542130948808-0"></div>
+                                    <img target="_self" th:src="@{/img/burak.jpg}" src="burak.jpg" width="900px" height="400px"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="future-container"><a class="shortcut-item" id="price-suggestion"
+                                                     onclick="setDataLayer('Ana Sayfa','Arabam ne kadar eder / Değerini Öğren Button','click','gaEvent');"
+                                                     href="/arabam-ne-kadar-eder">
+                        <div class="content-container ">
+                        </div>
+                        <div class="hover-animation-element"></div>
+                    </a><a href="/tramer-hasar-sorgu" id="new-advert" class="shortcut-item">
+                        <img target="_self" th:src="@{/img/burak.jpg}" src="burak.jpg" width="100px" height="100px"/>
+                        <div class="content-container ">
+                        </div>
+                        <div class="hover-animation-element"></div>
+                    </a><a href="/sifir-km" id="new-car" class="shortcut-item"
+                           onclick="setDataLayer('Ana Sayfa','0 Km Araçlar','click','gaEvent');">
+                        <div class="content-container ">
+                        </div>
+                        <div class="hover-animation-element"></div>
+                    </a>
+                        <a href="/araba-bul" id="find-car" class="shortcut-item"
+                           onclick="setDataLayer('Ana Sayfa','Aracını Bul','click','gaEvent');">
+                        <div class="content-container ">
+                        </div>
+                        <div class="hover-animation-element"></div>
+                    </a></div>
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+        <div class="showcase row">
+            <div class="col-xs-12">
+                <h2 class="homePageHeader tac bold"> İlanlar
+                    <a target="_self" href="/ikinci-el?tag=Ana+Sayfa+Vitrin" class="all-showcase fr" onclick="setDataLayer('Ana Sayfa','Vitrin','Tum Vitrin','gaEvent',true);">
+                    </a>
+                </h2>
+            </div>
+            <div class="col-xs-12">
+                <div class="row ">
+                    <h2 class="dn">2.EL ARABA VİTRİN İLANLARI</h2>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-xs-6" th:each="post : ${posts}">
+                            <div class="listing-box-item should-hover  oncelikli">
+                                <div class="inner-container">
+                                    <div class="hover-container">
+                                        <a th:href="${ '/postShow/' + post.id}"  >
+                                            <div class="image-container">
+                                                <img crossorigin="anonymous" th:src="@{'/img/' + ${post.fileName}}" class="mw100 w100 loaded"  data-was-processed="true" />
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="content-container">
+                                        <a th:href="${ '/postShow/' + post.id}"  target="_blank">
+                                            <div class="df df-jcsbetween">
+                                                <p class="model-city"  th:text="${post.cityId}"></p>
+                                            </div>
+                                            <center><div class="df df-jcsbetween" style="margin-top: 10px;">
+                                            <p class="model-city"  th:text="${post.description}" ></p>
+                                            </div> </center>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="modal">
+            <div class="modal-inner"><span></span>
+                <div class="modal-content"></div>
+            </div>
+        </div>
+    </div>
+<div class="clearfix cf"></div>
+<footer id="js-hook-footer-detail-scroll" class=" site-footer ">
+    <div class="footer-area">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container footer-container">
+        </div>
+    </div>
+    <p style="width: 100%; font-size: 10px; text-align: center; clear: both; color: #CCC;background: #f0f0f0">28.2.2019
+        12:17:36</p></footer>
+<script> setDataLayer = function (category, action, label, event, nonInteraction) {
+    var dl = window.dataLayer;
+    if (nonInteraction) {
+        dl.push({Category: category, Action: action, Label: label, event: event, nonInteraction: true});
+    } else {
+        dl.push({Category: category, Action: action, Label: label, event: event});
+    }
+} </script>
+<div id="loading" class="ngdialog arabam-modal-wrapper modal-form-loading-container zitop dn"
+     ng-class="{'db': Properties.isLoadingVisible}">
+    <div class="ngdialog-overlay"></div>
+    <div class="ngdialog-content">
+        <div class="border-navy3 p16 tac horizontal-half-padder-plus"
+             ng-class="{'with-border-radius': !isMobile, 'br0 bl0': isMobile}"><p class="p8"><i
+                class="fa fa-spin fa-spinner fa-pulse icon-size-48 color-red4" aria-hidden="true"></i></p>
+            <div class="p8 mid-title font-letter1">LÜTFEN BEKLEYİNİZ</div>
+        </div>
+    </div>
+</div>
+<script> dataLayer.push({'CD_LoginStatus': 'No'}, {'CD_TotalAdverts': '0'}, {'CD_IP': '88.241.38.84'}); </script>
+<script> loadScriptsWithCb("//cdn.segmentify.com/segmentify.js", function () {
+    (function (namespace) {
+        window['SegmentifyTrackingObject'] = namespace;
+        window[namespace] = window[namespace] || function () {
+            (window[namespace].q = window[namespace].q || []).push(arguments);
+        };
+        window[namespace].config = {
+            'segmentifyApiUrl': '//dcetr7.segmentify.com',
+            'domain': "arabam.com",
+            'disableNextPage': true,
+            'jq': window.jQuery
+        };
+        if (!!Segmentify) {
+            Segmentify('apikey', 'e68b7b09-9889-4c67-a96c-e8953de30bc8');
+        }
+    })("Segmentify", window);
+}); </script>
+<script>   try {  /*Collect.send(advertCollection, "Impression");*/
+} catch (err) {
+}
+setDataLayer = function (category, action, label, event, nonInteraction) {
+    var dl = window.dataLayer;
+    if (nonInteraction) {
+        dl.push({Category: category, Action: action, Label: label, event: event, nonInteraction: true});
+    } else {
+        dl.push({Category: category, Action: action, Label: label, event: event});
+    }
+};  </script>
+<script src="https://arbimg1.mncdn.com/assets/webpackAssets/dist/scripts/home.7664781d6eaaa8bc5e84.js"
+        type="text/javascript"></script>
+<script type="text/javascript"> google_tag_params = {'pagetype': 'Homepage'}; </script>
+<script src="https://arbimg1.mncdn.com/assets/dist/node_modules/simple-scrollbar.min.js?v=20190225115221"></script>
+<script type="text/javascript"> window.addEventListener("load", function () {
+    var f = document.createElement('iframe');
+    f.src = "//creativecdn.com/tags?id=pr_u3WCA4IpKqVn38r8wqss_home";
+    f.width = 1;
+    f.height = 1;
+    f.scrolling = "no";
+    f.style.display = "none";
+    document.body.appendChild(f);
+}); </script>
+<script type="text/javascript"> window.sgfLayer = {
+    'page': {
+        "category": "Home Page",
+        "subCategory": "",
+        "userId": "",
+        "visitorId": "a4c6da64-cedd-4478-bbdd-9f255ef38e24"
+    }, 'common': {userAgent: window.navigator.userAgent, pageUrl: document.URL, referrer: document.referrer}
+}; </script>
+<link href="https://arbimg1.mncdn.com/assets/webpackAssets/dist/styles/home.4b51f81b15b5598fc2ac.css" rel="stylesheet"/>
+<div class="overlay-container"></div>
+</div>
+</body>
+</html>

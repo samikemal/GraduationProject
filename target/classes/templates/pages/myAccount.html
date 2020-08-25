@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+  Teklif Ver Kullanıcı Sayfası
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet"   th:href="@{/css/design.css}"/>
+  <link rel="stylesheet"   th:href="@{/css/paper-dashboard.css}"/>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/>
+
+</head>
+
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger" style="background-color: #999;"  >
+      <div class="logo">
+        <a th:href="@{/}" class="simple-text logo-normal">
+          Anasayfa
+        </a>
+      </div>
+      <div class="sidebar-wrapper" th:if="${userControl eq true}">
+        <ul class="nav">
+          <li class="active ">
+            <a  th:href="${ '/myAccount/' + id}">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Kullanıcı Profili</p>
+            </a>
+          </li>
+          <li>
+            <a th:href="${ '/adviserment/' + id}">
+              <i class="nc-icon nc-tile-56"></i>
+              <p>İlan Listesi</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a  target="_self" th:href="${ '/myAccountLogin/' + user.id}" th:if="${myUserId eq null}" class="nav-link btn-rotate" >Giriş Yap</a>
+                <a  th:href="${ '/myAccount/' + myUserId}"  th:if="${myUserId ne null}" class="nav-link btn-rotate" >Profilim
+                </a>
+              </li>
+               <li class="nav-item">
+               <a target="_self" href="/chooseRegister"  th:if="${myUserId eq null}" class="nav-link btn-rotate" >Üye Ol</a>
+             <!--  <a target="_self" th:href="${ '/logoutMyAccount/' + user.id}"  th:if="${myUserId ne null}"  class="nav-link btn-rotate" >Çıkış Yap</a>-->
+            <a target="_self" th:href="${ '/logOut/'}" th:if="${myUserId ne null}"  class="nav-link btn-rotate" >Çıkış Yap</a>
+               </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <!-- <div class="panel-header panel-header-sm">
+  
+  
+</div> -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Profili Düzenle</h5>
+              </div>
+              <div class="card-body">
+                <form method="post" th:action="${'/editProfile/' + user.id}"  th:object="${userUyeForm}"  >
+                  <div class="row" >
+                    <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>İsim</label>
+                        <input type="text" class="form-control"  placeholder="İsim"  th:placeholder="${user.name}" th:field="*{name}" />
+                      </div>
+                    </div>
+                    <div class="col-md-3 px-1" th:if="${userType eq 'personal'}">
+                      <div class="form-group">
+                        <label>Soyisim</label>
+                        <input type="text" class="form-control" placeholder="SoyiSoyisimsim" th:placeholder="${user.lastName}" th:field="*{lastname}" />
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1" >Email address</label>
+                        <input type="email" class="form-control" placeholder="EmaSoyisimil"  th:placeholder="${user.email}" th:field="*{mail}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label>Telefon Numarası </label>
+                       <input type="text" class="form-control" placeholder="Home Address"   th:placeholder="${user.getPhoneNumber() }"  disabled = ""/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Adres</label>
+                        <input type="text" class="form-control" placeholder="Home Address"   th:placeholder="${user.addressLine + '     '+ user.cityName + '  ' +  user.townName }" th:field="*{line}"   disabled=""  />
+                      </div>
+                    </div>
+                  </div>
+                   <div class="row">
+                      <div class="update ml-auto mr-auto">
+                         <button type="submit" class="btn btn-primary btn-round" th:if="${userControl eq true}" >Profili Güncelle</button>
+                    </div>
+                 </div>
+                </form>
+                <form   method="post" th:if="${userControl eq true}"   th:action="${'/editAddress/' + user.id}" th:object="${userUyeForm}" >
+                  <div class="row" >
+                    <div class="col-md-6 pr-1" >
+                      <div class="form-group">
+                        <label>Şehir</label>
+                        <select class="form-control" th:field="*{cityName}" >
+                        <option value=""></option>
+                        <option  th:each="city : ${cities}"  th:value="${city.cityName}"  th:text="${city.cityName}" ></option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6 px-1">
+                      <div class="form-group">
+                        <label>İlçe</label>
+                        <select class="form-control"  th:field="*{townName}">
+                        <option value=""></option>
+                        <option th:each="town : ${towns}"  th:value="${town.townName}" th:text="${town.townName}"   ></option>
+                        </select>
+                       </div>
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Adres</label>
+                        <input type="text" class="form-control" placeholder="Açıklama"    th:field="*{line}"  />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round" >Adresi  Güncelle</button>
+                    </div>
+                  </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" th:if="${postIsEmpty ne true }">
+            <div class="card" th:if="${userType ne 'company'}">
+              <div class="card-header"  >
+                <h4 class="card-title">Kullanıcının Bütün İlanları</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled team-members">
+                  <li>
+                    <div class="row" th:object="${userUyeForm}">
+                      <div class="col-md-7 col-7" th:each="post : ${posts}">
+                          <a th:href="${ '/postShow/' + post.id}"  th:text="${post.title}" >
+                          <td   th:text="${post.description}" ></td></a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              <ul>
+                <li>
+                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
+                </li>
+                <li>
+                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+                </li>
+                <li>
+                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                ©
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+</body>
+
+</html>

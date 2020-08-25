@@ -1,0 +1,619 @@
+@media screen and (max-width: 768px) {
+    .nav.navbar-nav.pull-right
+    {
+        float: none !important;
+        margin-top: 0;
+    }
+}
+
+.navbar.navbar-default.navbar-static-top
+{
+    border: solid;
+    margin-bottom: 0;
+    background: url(../../Content/Images/535.png);
+    font-style: italic;
+
+}
+.navbar.navbar-default.navbar-static-top a,.navbar.navbar-default.navbar-static-top p {
+    color: white !important;
+}
+.text-red{
+    color:coral ;
+}
+.text-renk{
+    color:coral;
+}
+.row1{
+    background-color:#ececec;
+    margin-right: 15px;
+
+}
+.text-yazılar{
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+.text-yazılar1{
+    color: coral;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.col-xs-6.col-lg-4{
+    color:black;
+}
+.text-referans{
+    text-align: center;
+    border-bottom: solid;
+    color:brown;
+
+}
+.text-center.center-block{
+    float: right;
+}
+.text-kaydırma{
+    margin-right: 140px;
+}
+.text-kaydırma1{
+    margin-left: 15px;
+
+}
+.text-yazılar2{
+
+}
+
+.margin-0{
+    margin: 0 !important;
+}
+
+.padding-0
+{
+    padding:0 !important;
+}
+
+.btn-test
+{
+    color: #fff;
+    background-color: #8f9c8f;
+    border-color: #4cae4c;
+}
+
+.full {
+    width: 100%;
+}
+.gap {
+    height: 30px;
+    width: 100%;
+    clear: both;
+    display: block;
+}
+.footer {
+    background:black;
+    height: 300px;
+    display: table;
+    padding-bottom: 30px;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #DDDDDD;
+
+}
+.footer p {
+    margin: 0;
+}
+.footer img {
+    max-width: 100%;
+}
+.footer h3 {
+    border-bottom: 1px solid #BAC1C8;
+    color: #54697E;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    padding: 40px 0 10px;
+    text-transform: uppercase;
+}
+.footer ul {
+    font-size: 13px;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 15px;
+    color: #7F8C8D;
+}
+.footer ul li a {
+    padding: 0 0 5px 0;
+    display: block;
+}
+.footer a {
+    color: #78828D
+}
+.supportLi h4 {
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: normal;
+    margin-bottom: 0 !important;
+    padding-bottom: 0;
+}
+.newsletter-box input#appendedInputButton {
+    background: #FFFFFF;
+    display: inline-block;
+    float: left;
+    height: 30px;
+    clear: both;
+    width: 100%;
+}
+.newsletter-box .btn {
+    border: medium none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    display: inline-block;
+    height: 40px;
+    padding: 0;
+    width: 100%;
+    color: #fff;
+}
+.newsletter-box {
+    overflow: hidden;
+}
+.bg-gray {
+    background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
+    box-shadow: 0 1px 0 #B4B3B3;
+}
+.social li {
+    background: none repeat scroll 0 0 #B5B5B5;
+    border: 2px solid #B5B5B5;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 8px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 36px;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+}
+.social li:hover {
+    transform: scale(1.15) rotate(360deg);
+    -webkit-transform: scale(1.1) rotate(360deg);
+    -moz-transform: scale(1.1) rotate(360deg);
+    -ms-transform: scale(1.1) rotate(360deg);
+    -o-transform: scale(1.1) rotate(360deg);
+}
+.social li a {
+    color: #EDEFF1;
+}
+.social li:hover {
+    border: 2px solid #2c3e50;
+    background: #2c3e50;
+}
+.social li a i {
+    font-size: 16px;
+    margin: 0 0 0 5px;
+    color: #EDEFF1 !important;
+}
+.footer-bottom {
+    background: #E3E3E3;
+    border-top: 1px solid #DDDDDD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.footer-bottom p.pull-left {
+    padding-top: 6px;
+}
+.payments {
+    font-size: 1.5em;
+}
+
+.color-white
+{
+    color:white !important;
+}
+
+.hizmetlerimiz1{
+    height:315px;
+    width:100%;
+    border:5px solid darksalmon;
+    background-color: darksalmon ;
+}
+.sekillendirme{
+    color: #172745;
+}
+.head-text{
+    color: #172745;
+}
+.sekillendrime1{
+    font-style: inherit;
+    color:black;
+}
+.link{
+    color: darkslateblue;
+
+}
+.link:hover {
+    text-shadow: 1px 1px 1px white;
+    font-size:15px;
+    transition: 0.3s;
+}
+.box {
+    background:#fff;
+    transition:all 0.2s ease;
+    border:2px dashed darkcyan;
+    margin-top: 10;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-clip: padding-box;
+    padding:0 20px 20px 20px;
+    min-height:340px;
+}
+
+.box:hover {
+    border:2px solid #525C7A;
+}
+
+.box span.box-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.box .box-content {
+    padding:25px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+}
+.box .box-content p {
+    color:#515c66;
+    text-transform:none;
+}
+
+
+.box {
+    background:#fff;
+    transition:all 0.2s ease;
+    border:2px solid;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-clip: padding-box;
+    padding:0 20px 20px 20px;
+    min-height:340px;
+}
+
+.box:hover {
+    border:2px solid;
+}
+
+.box span.box-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.box .box-content {
+    padding: 16px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+    box-sizing: border-box;
+}
+.box .box-content p {
+    color:#515c66;
+    text-transform:none;
+}
+.text-referans1{
+    text-align: center;
+    border-bottom: solid;
+    color:darkslategrey;
+}
+.cerceve5{
+    height: 315px;
+    width: 100%;
+    border: 5px solid lightseagreen;
+    padding:10px;
+    background-color: lightseagreen;
+}
+.text-referans5{
+    text-align: center;
+    border-bottom: solid;
+    color:#525C7A;
+}
+.resimle-oynama{
+    width: 30%;
+    max-height: 600px;
+
+}
+
+.slidingVertical {
+    display: inline;
+    text-indent: 8px;
+}
+.resimler1{
+    font-style: italic;
+    font-size: 90px;
+    color: #525C7A;
+    margin-top:160px;
+
+    margin-left:50px;
+    font-weight: bold;
+    font-family:Calibri;
+}
+
+.slidingVertical span{
+    display: none;
+}
+.col-md-6{
+    margin-top: 45px;
+}
+
+.backDiv {background-image: url(http://www.girisimcilerplatformu.com/wp-content/uploads/2015/11/arka-plan-resimleri-krt.jpg);}
+
+.dst{
+    font-style: italic;
+    font-size: 90px;
+    color: #525C7A;
+    margin-top:120px;
+    display: table;
+    margin-left:40px;
+    font-weight: bold;
+    font-family:Calibri;
+}
+
+.cerceve6
+{
+    height: 315px;
+    width: 100%;
+    border: 5px solid darksalmon; /* Kenar kalınlığı, şekli ve rengi */
+    padding: 10px;
+    background-color: darksalmon;
+}
+
+
+
+.panel-heading:hover {
+    cursor:pointer;
+}
+.panel-heading {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.side-tab:hover {
+    cursor: pointer;
+}
+.panel.panel-default {
+    border: none;
+    box-shadow: none !important;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+}
+.panel-heading {
+    border: none;
+    background-color:darkslategrey;
+
+}
+.panel-body {
+    background-color: #f5f5f5;
+}
+.panel-yazi {
+    font-weight: 410;
+    color: white;
+}
+
+/*----------------------------------
+    Macbook pro mockup from:
+    http://jaredhardy.com/minimal-devices/
+
+----------------------------------*/
+
+.md-macbook-pro {
+    display: block;
+    width: 55.3125em;
+    height: 31.875em;
+    font-size: 13px;
+    margin: 0 auto;
+}
+.md-macbook-pro .md-lid {
+    width: 45em;
+    height: 30.625em;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 1.875em;
+    border: solid 0.1875em #cdced1;
+    background: #131313;
+}
+.md-macbook-pro .md-camera {
+    width: 0.375em;
+    height: 0.375em;
+    margin: 0 auto;
+    position: relative;
+    top: 1.0625em;
+    background: #000;
+    border-radius: 100%;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+}
+.md-macbook-pro .md-camera:after {
+    content: "";
+    display: block;
+    width: 0.125em;
+    height: 0.125em;
+    position: absolute;
+    left: 0.125em;
+    top: 0.0625em;
+    background: #353542;
+    border-radius: 100%;
+}
+.md-macbook-pro .md-screen {
+    width: 42.25em;
+    height: 26.375em;
+    margin: 0 auto;
+    position: relative;
+    top: 2.0625em;
+// background: #1d1d1d;
+    background: #fff;
+    overflow: hidden;
+}
+.md-macbook-pro .md-screen img {
+    width: 100%;
+}
+.md-macbook-pro .md-base {
+    width: 100%;
+    height: 0.9375em;
+    position: relative;
+    top: 35px;
+    background: #c6c7ca;
+}
+.md-macbook-pro .md-base:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.5em;
+    margin: 0 auto;
+    position: relative;
+    bottom: -0.1875em;
+    background: #b9babe;
+    border-radius: 0 0 1.25em 1.25em;
+}
+.md-macbook-pro .md-base:before {
+    content: "";
+    display: block;
+    width: 7.6875em;
+    height: 0.625em;
+    margin: 0 auto;
+    position: relative;
+    background: #a6a8ad;
+    border-radius: 0 0 0.625em 0.625em;
+}
+.md-macbook-pro.md-glare .md-lid:after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 1.25em 0 0;
+    background: -webkit-linear-gradient(37deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+    background: -moz-linear-gradient(37deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+    background: -o-linear-gradient(37deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+    background: linear-gradient(53deg, rgba(255, 255, 255, 0) 50%, rgba(247, 248, 240, 0.025) 50%, rgba(250, 245, 252, 0.08));
+}
+.collapseFour {
+    display: none;
+}
+.collapse.in {
+    display: block;
+}
+tr.collapse.in {
+    display: table-row;
+}
+tbody.collapse.in {
+    display: table-row-group;
+}
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    -webkit-transition-duration: .35s;
+    -o-transition-duration: .35s;
+    transition-duration: .35s;
+    -webkit-transition-property: height, visibility;
+    -o-transition-property: height, visibility;
+    transition-property: height, visibility;
+}
+
+
+.hizmetlerimiz-collapse-image
+{
+    width: 540px !important;
+    height: 343px !important;
+}
+
+
+.navbar-logo
+{
+    max-width: 100%;
+    height: 50px;
+    margin-top: -14px !important;
+
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.ayarlama{
+    min-height: 255px;
+}
+.resimm
+{
+    width: 600px;
+    height: 450px;
+    margin-left: 50px;
+}

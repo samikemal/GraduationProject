@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html ng-app="arabam" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+     <link rel="stylesheet"   th:href="@{/css/modal.css}" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" />
+  <script> var configuration = {"AssetBasePath":"https://arbimg1.mncdn.com/assets","ImageBasePath":null,"PhotoBasePath":"https://foto.arabam.com","AssetVersion":"?v=20190503151348","AuctionApi":"https://ihale.arabam.com","FbAppId":"19995709208","IsProductionReady":true,"IsMobile":false,"AppType":3};  </script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+   <style>
+        .bmbutton {
+
+        list-style: none;
+        width: 200px;
+        margin:0;
+        line-height: 10px;
+        display: block;
+        background: #4E9CAF;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+         }
+        .buttonLikeLink {
+                      background:white;
+                      color:inherit;
+                      border:none;
+                      padding:0!important;
+                      font: inherit;
+                      /*border is optional*/
+                      cursor: pointer;
+         }
+         table {
+             font-family: arial, sans-serif;
+             border-collapse: collapse;
+             width: 100%;
+         }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+   </style>
+</head>
+
+
+<body data-is-ie="False">
+<div id="fb-root"></div>
+<noscript>
+  <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MGPD5L" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+</noscript>
+<reminder-bar reminder-is-visible="arabam"></reminder-bar>
+<div id="cookie-disclamer-wrapper" class="dn">
+    <div class="container">
+        <div class="df df-jcsbetween">
+            <a class="close-button" href="javascript:;"><i class="icon-arabam-exit"></i></a></div>
+    </div>
+    <div class="cookieOverlay"></div>
+</div>
+<div id="wrapper">
+    <header id="header" class="header-desktop" showNavigation='true'>
+        <div class="container">
+            <div class="row">
+                <div class="headerBar">
+                    <a  target="_self" href='/' title="teklifimvar.com" id="arabam-header-logo" >
+                        <img  class="menu" href="/"  target="_self" th:src="@{/img/sepet.png}"   src="sepet.png"/>
+                    </a>
+
+                    <div id="header-search-wrapper" class="search">
+                        <div class="search-container "><i class="icon icon-arabam-search search-icon-container"></i>
+                            <div class="search-input-container">
+                                <input type="text" id="search-suggestion-trigger-input"
+                                       class="search-input"
+                                />
+                                <div id="suggestion-wrapper" class="search-result">
+                                    <div id="suggestions-area"></div>
+                                </div>
+                            </div>
+                            <div class="search-button"><span> ARA </span></div>
+                        </div>
+                    </div>
+                    <div class="header-actions-container">
+                        <div id="header-favorites-wrapper">
+                            <div class="header-badge">
+                                <div class="inner"></div>
+                            </div>
+                            <i class="icon-arabam-fav"></i></div>
+                        <div id="header-notification-wrapper" class="dn">
+                            <div class="first-wrapper">
+                                <div class="header-badge">
+                                    <div class="inner"></div>
+                                </div>
+                                <i class="icon-arabam-notification"></i></div>
+                            <div class="notification-dropdown">
+                                <div class="inner-wrapper">
+                                    <ul class="notifications-list"></ul>
+                                    <div class="nothing-found dn"><p class="message">Yeni bildiriminiz
+                                        bulunmamaktadır.</p>
+                                        <div class="big-icon-wrapper"><i class="icon-arabam-notification"></i></div>
+                                    </div>
+                                    <div class="loading">
+                                        <div class="icon-wrapper"><i class="icon-arabam-spinner"></i></div>
+                                        <p>Bildirimleriniz yükleniyor...</p></div>
+                                    <div class="button-all-notifications"><a href='/bildirimler'> Tüm Bildirimler </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div   id="header-non-authenticated-navigator" class="dn">
+                            <a href="/chooseLogin" th:if="${isLogin eq false}" rel="nofollow"> Giriş Yap </a><span th:if="${isLogin eq false}">/</span>
+                            <a href="/chooseRegister" th:if="${isLogin eq false}" rel="nofollow"> Üye Ol </a>
+                            <a th:if="${isLogin eq true}" th:text="${customerData.name}"   th:href="${ '/myAccount/' + customerData.userId}"  rel="nofollow" ></a>
+                            <span th:if="${isLogin eq true}">/</span>
+                            <a th:if="${isLogin eq true}" href="/logOut"  rel="nofollow" >Çıkış Yap </a>
+                        </div>
+                        <a rel="nofollow" id="header-create-new-advert-button"
+                           href='/post' th:if="${userType eq 'company'}" >  </a>
+                        <a rel="nofollow" id="header-create-new-advert-button" class="btn btn-yellow2018 getAdvertBtn"
+                           href='/post' th:if="${userType ne 'company'}"> Ücretsiz İlan Ver </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-overlay"></div>
+    </header>
+  <div ng-controller="AdvertDetailController as self" ng-init="self.modelId = 10292; self.categoryId = 1804; self.advertId = 11186059; self.favorited = false;" class="bg-grey2018">
+    <div class="container detail-v2-identifier bg-grey2018 mt10">
+      <div class="row">
+        <div class="detail-column-detail pr">
+            <h1 class="advert-detail-title" ng-non-bindable="" th:text="${post.description}" ></h1>
+          <div class="df" style="align-items: stretch" id="js-hook-for-observer-detail">
+            <div class="detail-column-detail bg-white pr">
+              <div class="bg-white cf slider-gallery pr h100">
+                <div class="w100 slider-main-gallery pr cf">
+                  <div id="js-hook-for-main-slider" >
+                    <a href="javascript:;" class="slick-wrapper"   th:each="image : ${images}">
+                      <img th:src="@{'/img/' + ${image.fileName}}" alt="Jeep Grand Cherokee 2.7 CRD Limited" />
+                    </a>
+                  </div>
+                  <button class="smg-prev smg-arrow" aria-label="Önceki" type="button">Önceki</button>
+                  <button class="smg-next smg-arrow" aria-label="Sonraki" type="button">Sonraki</button>
+                </div>
+                <div class="slider-thumbnails-row cf">
+                  <div class="w100 cf pr" id="js-hook-for-thumbnail-slider">
+                    <a class="pr fl wide-screen-thumbs cursor-pointer" href="javascript:;" th:each="image : ${images}"  >
+                      <img class="fl w100" th:src="@{'/img/' + ${image.fileName}}" />
+                    </a>
+                  </div>
+                  <button class="smg-prev smg-arrow" aria-label="Önceki" type="button">Önceki</button>
+                  <button class="smg-next smg-arrow" aria-label="Sonraki" type="button">Sonraki</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="banner-column-detail bcd-mid-extended p10 bg-white">
+
+                <div class="mt12">
+                <span class="color-red4 font-semi-big bold mt10" th:text="${post.title}"></span>
+              </div>
+              <p class="one-line-overflow font-default-minus pt4 color-black2018 bold"  th:text="${post.cityId} + '/' + ${post.townId}"></p>
+              <ul class="w100 cf mt16">
+
+                <li class="bcd-list-item">
+                  <span class="bli-particle bold">İlan Tarihi:</span>
+                  <span class="bli-particle "   th:text="${post.createdAt}"  ></span>
+                </li>
+                <li class="bcd-list-item">
+                  <span class="bli-particle bold">Kategori</span>
+                  <span class="bli-particle "  th:text="${categoryName}" ></span>
+                </li>
+                <li class="bcd-list-item">
+                  <span class="bli-particle bold">Alt Kategori</span>
+                  <span class="bli-particle "   th:text="${subCategoryName}"></span>
+                </li>
+              </ul>
+                   <div class="df df-jcenter pr pt10 border-top-lightgray2018" >
+                      <a  target="_self" type="submit" th:href="${'/myAccount/' + postUserId}"  class="bmbutton" rel="nofollow"   style="color:black; background-color:#990406 ;text-decoration: none;" > İlan Sahibi </a>
+                     </div>
+              <div class="df df-jcenter pr pt10 border-top-lightgray2018" th:if="${isLogin eq false}">
+                <a  target="_self" type="submit" th:href="${'/chooseLogin/' + postId}"  class="bmbutton" rel="nofollow"  th:if="${isLogin eq false}" style="width: 200px; color:black;text-decoration: none; "> Teklif Ver </a>
+                </div>
+
+                <div class="df df-jcenter pr pt10 border-top-lightgray2018" >
+                    <a  target="_self" type="submit" th:href="${'/myAccount/' + postUserId}"  class="bmbutton" rel="nofollow"   style="color:black; background-color:#43C6AC ;text-decoration: none;" > Mesaj Gönder </a>
+                </div>
+                 <div class="df df-jcenter pr pt10 border-top-lightgray2018" th:if="${userType eq 'company'}">
+                     <a href="#openModal"  class="bmbutton" style="text-underline: none">Teklif Ver</a>
+                     <div id="openModal" class="modalWindow" style="font-size: 16px;">
+                     <div>
+                     <div class="modalHeader">
+                     <h2></h2>
+                     <a href="#close" title="Close" class="close">X</a>
+                       <p></p>
+                         <p></p>
+                     </div>
+                     <div class="modalContent">
+                    <p style="margin-top: 10px;">İlana Teklif Ver</p>
+                    <form th:action="${'/saveTeklif/' + postId}"  method="post" th:object="${teklifForm}">
+                    <input type="number" placeholder="Teklif" min="0"  style="margin-top: 10px; width: 450px;"  th:field="*{price}"/>
+                    <p></p>
+                    <textarea placeholder="Açıklama"  rows="5" cols="50" style="margin-top: 10px;" th:field="*{comment}"></textarea>
+                     <button  type="submit" value="Teklif Ver" > Teklif Ver</button>
+                     </form>
+                     </div>
+                     <div class="modalFooter">
+                     <div class="clear"></div>
+                     </div>
+                     </div>
+                     </div>
+
+                <div id="js-hook-overlay-mediocre-fav" ng-click="self.toggleFav(true)" class="overlay-turn-off-the-lights"></div>
+                <script type="text/ng-template" id="favoritePopover.html">
+                  <div class="w100 box-shadow2018 pb16">
+                    <div class="pt16 pb16">
+                      <div ng-show="fap.showFavoriteLoading" class="tac">
+                        <i class="fa fa-spin fa-spinner color-red4 fa-2x"></i>
+                      </div>
+                      <div  class="">
+                        <div class="tac pb0 font-13 semifl loading-bold">"{{fap.listNameToDisplay}}"</div>
+                        <div class="tac font-13 pt4">
+                          <span class="font-default-minus">Listesine Eklendi!</span>
+                        </div>
+                        <div class="tac font-default-minus bold pt4 pb4 w100 fl" >
+                          <a class="tac font-default-minus bold p8 color-red4 box-shadow2018 w100 fl" ng-click="fap.displayNewListForm = true">Yeni Liste Oluştur</a>
+                        </div>
+                        <div class="" >
+                          <p class="font-default-minus mb16 tac color-grayblue2018">Favorilerinize bir sonraki ziyaretinizde yeniden ulaşabilmek için giriş yapın.</p>
+                        </div>
+                      </div>
+                      <div >
+                        <div  class="pl16 pr16 smaller-text vertically-centered-big border-grey1 bl0 br0 bt0" ng-click="fap.favoriteClickCallBack({MemberFavoriteListId: list.Id}, list)"> {{list.Name}} </div>
+                        <div class="tac font-default-minus bold p8 color-red4 box-shadow2018 w100 fl" >
+                          <span ng-click="fap.displayNewListForm = true">Yeni Liste Oluştur</span>
+                        </div>
+                      </div>
+                      <div class="p16 pb0 favorite-list-create-wrapper" >
+                        <input type="text" ng-model="fap.newFavoriteListname" class="border-grey1 form-control" placeholder="Yeni Liste Adı" />
+                        <button type="button" class="w100 vertically-centered-big mt8 btn btn-no-border-radius semi-bold" ng-class="{'btn-grey': fap.newFavoriteListname.length == 0, 'btn-yellow4': fap.newFavoriteListname.length > 0}" ng-click="fap.createNewList()"> Ekle </button>
+                        <div class="cf"></div>
+                      </div>
+                    </div>
+                  </div>
+                </script>
+                <div id="js-hook-overlay-mediocre-social" ng-click="self.toggleSocialShare()" class="overlay-turn-off-the-lights"></div>
+              </div>
+              <div ng-if="!!self.favTab" class="pr">
+                <div  class="mediocre-social-share pr mss-middle bg-white w100 fl horizontal-padder pb4 mt16 zitop pa l0" style="padding-bottom: 10px;"></div>
+              </div>
+              <ul class="mediocre-social-share detail-social-share bg-white zitop fr pa r0" ng-if="!!self.socialShareTab">
+                <li class="db mb4">
+                  <a href="javascript:;" data-event-category="Social" ng-click="self.toggleSocialShare(); self.CommonHelperService.setDataLayer('Ilan Detay','Paylaş','Twitter','gaEvent',true);" onclick="javascript: window.open('https://twitter.com/intent/tweet?original_referer=' + window.location.href + '&amp;text=' + encodeURIComponent(document.title.replace('.com', '')) +'&amp;url=' +encodeURIComponent(location.href), '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=626,height=436'); return false;" class="w100 pt4 pb4">
+                    <i class="fa fa-twitter-square val-middle font-default-plus color-red4"></i>
+                    <span class="font-13 color-black2018 ml4">Twitter'da paylaş </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="w100 sdt-nav-tabs sdt-nav-always-visible cb mt20" id="js-hook-for-observer-small-sticky">
+            <div class="df df-jcsaround df-center">
+              <a class="sdt-list-link" href="javascript:;" ng-click="self.resolveTabById('js-hook-for-observer-aciklama')" ></a>
+            </div>
+          </div>
+          <div class="cf">
+            <div class="w100 detail-border-context" id="js-hook-for-observer-tabs-wrapper">
+              <div class="detail-head-wrapper" id="js-hook-for-observer-aciklama" style="font-size: 20px;">
+                  <table style="font-family: 'arial, sans-serif'" >
+                      <tr>
+                          <th>İlan Sahibi</th>
+                          <th>Teklif Fiyatı</th>
+                          <th>Yorum</th>
+                          <th>Profil</th>
+                      </tr>
+                    <div th:each="teklif : ${teklifs}" >
+                        <tr>
+                            <td><a target="_self"  th:text="${teklif.userName}"></a></td>
+                            <td th:text="${teklif.price}"></td>
+                            <td th:text="${teklif.comment}"></td>
+                            <td><a  target="_self" type="submit" th:href="${'/myAccount/' + postUserId}"  class="bmbutton" rel="nofollow"   style="color:black; background-color:#990406 ;text-decoration: none; width: 120px;" > Profile Git </a>
+                            </td>
+                        </tr>
+                    </div>
+                  </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="banner-column-detail">
+          <advert-detail-prev-next selected-advert-id="11186059" is-advert-detail="true"></advert-detail-prev-next>
+          <script type="text/ng-template" id="advertDetailPrevNext.html">
+            <div class="prev-next-wrapper cf bg-grey0 lh40" ng-show="pn.showButtons">
+              <div class="cf">
+                <div class="quick-navigate prev btn fl usn pnw-bl1 lh40" >
+                  <i class="icon-arabam-left-arrow pr4 font-small val-middle pnw-qn-icon" aria-hidden="true"></i>
+                  <span class="semi-bold font-default-minus p0">Önceki İlan</span>
+                </div>
+                <div class="quick-navigate next btn fr usn lh40" >
+                  <span class="semi-bold font-default-minus p0">Sonraki İlan</span>
+                  <i class="icon-arabam-right-arrow pl4 font-small val-middle pnw-qn-icon" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </script>
+        </div>
+      </div>
+
+              <footer class="footer footer-black  footer-white " style="margin-top: 700px;">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <nav class="footer-nav">
+                              <ul>
+                                  <li>
+                                      <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
+                                  </li>
+                                  <li>
+                                      <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+                                  </li>
+                                  <li>
+                                      <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
+                                  </li>
+                              </ul>
+                          </nav>
+                      </div>
+                  </div>
+              </footer>
+
+    </div>
+  </div>
+  <script> var isContactClosed = false; var hasRoutePhone = false; var hasSwapCriteria = false; var HasExternalExpertise = false; var isOwner = false; var isMessageClosed = false; var adPrice = 68000; var colorPalette = { painted: "#fdb724", changed: "#d8636d", original: "#7ec97e" };   var advertEquipments = ["Deri Direksiyon","Deri Koltuklar","Elektrikli Camlar","Elektrikli Hafızalı Koltuklar","Hız Sabitleyici","Hidrolik Direksiyon","Isıtmalı Koltuklar","Katlanabilir Arka Koltuklar","Klima","Sunroof","Yol Bilgisayarı","Yükseklik Ayarlı Direksiyon","4x4","Turbo","ABS","Alarm","Arka Görüş Kamerası","Hava Yastığı Perde","Hava Yastığı Sürücü","Hava Yastığı Yan","Hava Yastığı Yolcu","Immobilizer","Isofix","Lastik Arıza Göstergesi","Merkezi Kilit","Alaşım Jant","Elektrikli Yan Aynalar","Sis Farı","Yağmur Sensörü","CD Çalar","CD Değiştirici","Radyo/Kaset"];    </script>
+  <script type="text/javascript"> collect_params = { 'pageType': 'Detail', 'assignee': '4028638', 'ilanNo': '11186059' }; </script>
+  <script type="text/javascript"> dataLayer.push({ 'CD_Pagetype': 'Detail', 'CD_Assignee': '4028638', 'CD_ilanTarihi': '20190401', 'CD_kategori': 'Arazi, SUV, Pick-up', 'CD_marka': 'Jeep', 'CD_model': 'Jeep Grand Cherokee 2.7 CRD Limited', 'CD_il': 'Ankara', 'CD_ilce': 'Akyurt', 'CD_galeri_name': 'ekare motor', 'CD_galeri_ID': '4059795', 'CD_ilanNo': '11186059', 'CD_photoCount': '25', 'CD_Etiket': 'Ana Sayfa Vitrin,bi`görelim`li,Ana Sayfa Vitrin', 'CD_Fiyat': '68000', 'CD_Detail_BigorelimStatus':'1', 'CD_Detail_ContactNumberCount ':'1', 'CD_Detail_MessageContactStatus' :'1', 'CD_Detail_850Status':'0', 'CD_Detail_PhoneContactStatus' : '1', 'CD_Detail_Breadcrumb':'Arazi, SUV, Pick-up / Jeep / Grand Cherokee / 2.7 CRD / Limited / ', 'CD_Detail_CarSegment': 'I', 'CD_ABTesting':(typeof ABTesting !== "undefined" ) ? ABTesting : 'desktop', 'CD_ilan_no': '11186059','CD_ilan_tarihi': '01 Nisan 2019','CD_marka': 'Jeep','CD_seri': 'Grand Cherokee','CD_model': '2.7 CRD Limited','CD_yil': '2002','CD_yakit_tipi': 'Dizel','CD_vites_tipi': 'Otomatik','CD_kilometre': '289.154 km','CD_boya-degisen': 'Belirtilmemiş','CD_takasa_uygun': 'Takasa Uygun','CD_kimden': 'Galeriden' }); window.Collect = window.Collect || null; if(!!Collect) { Collect.send('11186059', 'View', 'Detail', ""); } </script>
+  <div id='div-gpt-ad-1546598493124-0' class="sticky-kulakcik-r3klam"></div>
+<script> setDataLayer = function (category, action, label, event, nonInteraction) { var dl = window.dataLayer; if (nonInteraction) { dl.push({ Category: category, Action: action, Label: label, event: event, nonInteraction: true }); } else { dl.push({ Category: category, Action: action, Label: label, event: event }); } } </script>
+<!--Donut#9E44667324D7D2ECB2440DAF0A0BD74819145CB8996DF5AF8CB830C2CC7DF43E3ECBC9260D0D27659B4E91E227F0A347C7ABC7DA0DECAB9E32F86004EBD627AC0A26850C9A173FB15AFCD185375F9E74608831A370B8672E1278EB6371D4750ACE3ED16797F2BEE757E6B4C97461BE1A9A0534A414BB0D6D18C7F66E723720F9422AF0B32898F4B17C10E7EB8F97DD1219CD0AA4402D3DC4E281BECA2E51AA386F3422A4EA3D7C2C1FB3A45CB8E2CE2640D6F9F3D6F8FE5889215F53DC52C63F2E84A3E53FE9A1095FFDA6C7136566907262C373438886F14013FAC7D882879104CB3FE178676E7D781C7B3AA8B624150AA59F3395F89C21B1D478CBE7F00A69842F9268901A25903FE7E11205E5B8A48310EDC6DF79C4A1450C82D9A8E48D7884CA651E0F44344A2F8B816828BD3AB1D987707A22DA14AD11826CD604399F0C2547AEC6E572D3A13421F2D71FDEBA09324A19B77543C6E14D9A6BE6E0C3EA525F0A07FF6CB9E03DF3E30BFA87547FBAFD2EBB8E0CD736F9DA01C2BF4C1E16C152CC49441D836701470EA725BA161AB226A92ACB89F803F8C276F8489997006DDAEFBC1FED219B0ACBA38F5E01928F70B422648F4D7340AEAA3EFBA5AD27AC44780F7C49E0AA711CA0EB631CA0B82F20E4A4B8714909D1480BC326174C3D0CFD7271B48145C8C664908A8C7E58F51720FD1E70CB8234741435BB3146F46E282CCE7591BC0F8248DF01EFA8BB288E1EB407570D64#-->
+<script> dataLayer.push( { 'CD_UserID': '4758602' }, { 'CD_UserType': 'Bireysel' }, { 'CD_DateOfMembership': '20190505' }, { 'CD_DateOfLastAdvert': '20190505' }, { 'CD_LoginStatus': 'Yes' }, { 'CD_UserLifetimeTotalAdverts': '1' }, { 'CD_UserActiveAdverts': '1' }, { 'CD_IP': '52.59.168.221' }); </script>
+<!--EndDonut-->
+<script src="https://arbimg1.mncdn.com/assets/dist/node_modules/jquery.min.js?v=20190503151348"></script>
+<script src="https://arbimg1.mncdn.com/assets/dist/node_modules/angular.min.js?v=20190503151348"></script>
+<script src="https://arbimg1.mncdn.com/assets/dist/min/all.min.js?v=20190503151348"></script>
+<script src="https://arbimg1.mncdn.com/assets/dist/js/header/headerController.min.js?v=20190503151348"></script>
+<script> loadScriptsWithCb("//cdn.segmentify.com/segmentify.js", function () { (function (namespace) { window['SegmentifyTrackingObject'] = namespace; window[namespace] = window[namespace] || function () { (window[namespace].q = window[namespace].q || []).push(arguments); }; window[namespace].config = { 'segmentifyApiUrl': '//dcetr7.segmentify.com', 'domain': "arabam.com", 'disableNextPage': true, 'jq': window.jQuery }; if (!!Segmentify) { Segmentify('apikey', 'e68b7b09-9889-4c67-a96c-e8953de30bc8'); } })("Segmentify", window); }); </script>
+<script>   try {  } catch(err) { } if (window.location.host.indexOf('arabam.com') > -1) { Raven.config('https://49acb16e66564adbb42149c2f4abbe4b@sentry.io/172189', { environment: 'production', release: '?v=20190503151348', ignoreErrors: ['top.GLOBALS', 'creativecdn', 'BBBB is not defined', 'hj', 'network error', 'ntp is not defined', 'freed script', 'googlesyndication', '[object Event]', 'postMessage'], whitelistUrls: [/https?:\/\/arb-img(\d*).mncdn\.com/i] }).install(); }  ;(function(w, d){ var b = d.getElementsByTagName('body')[0]; var injectLazyLoadJs = function() { var scr1pt = d.createElement("script"); scr1pt.async = false; scr1pt.src = "https://arbimg1.mncdn.com/assets/dist/node_modules/lazyload.10.19.0.min.js?v=20190503151348"; b.appendChild(scr1pt); }; if (!("IntersectionObserver" in w)) { var s = d.createElement("script"); s.async = false; s.src = "https://arbimg1.mncdn.com/assets/dist/node_modules/intersection-observer.js?v=20190503151348"; b.appendChild(s); s.addEventListener('load', function () { injectLazyLoadJs(); }, false); } else { injectLazyLoadJs(); } }(window, document)); </script>
+<script> /* Listen to the Initialized event */ window.lazyLoadReady = new Promise(function(resolve, reject) { window.addEventListener('LazyLoad::Initialized', function (e) { /* Get the instance and puts it in the lazyLoadInstance variable */ lazyLoadInstance = e.detail.instance; resolve(); return window.lazyLoadReady; }, false); }); window.arabamLazyLoadErrorCallback = function (element) { /* bir gorsel 404 alıyorsa noimage goster */ element.src = "https://arbimg1.mncdn.com/ilanfotograflari/noImage/01/01/1/noimage5_160x120.jpg"; }; /* Set the lazyload options for async usage */ lazyLoadOptions = { /* your lazyload options */ callback_error: window.arabamLazyLoadErrorCallback }; </script>
+<link href="https://arbimg1.mncdn.com/assets/dist/node_modules/lightgallery.min.css?v=20190503151348" rel="stylesheet" />
+<script src="https://arbimg1.mncdn.com/assets/dist/min/all.detail.min.js?v=20190503151348"></script>
+<script src="https://arbimg1.mncdn.com/assets/dist/js/advertDetail/advertDetail.min.js?v=20190503151348"></script>
+<link href="https://arbimg1.mncdn.com/assets/dist/css/index.css?v=20190503151348" rel="stylesheet" />
+<link href="https://arbimg1.mncdn.com/assets/dist/css/detail-v2.css?v=20190503151348" rel="stylesheet" />
+<div class="overlay-container"></div>
+</div>
+</body>
+</html>

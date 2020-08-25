@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+       <!--     Fonts and icons     -->
+       <link rel="stylesheet"   th:href="@{/css/design.css}"/>
+       <link rel="stylesheet"   th:href="@{/css/paper-dashboard.css}"/>
+
+       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+          <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+</head>
+
+<body class="">
+
+
+<div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger" style="background-color: #999;"  >
+      <div class="logo">
+        <a th:href="@{/}" class="simple-text logo-normal">
+          Anasayfa
+        </a>
+      </div>
+      <div class="sidebar-wrapper" >
+        <ul class="nav">
+          <li class="active ">
+            <a  th:href="${ '/myAccount/' + id}">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Kullanıcı Profili</p>
+            </a>
+          </li>
+          <li>
+            <a th:href="${ '/adviserment/' + id}">
+              <i class="nc-icon nc-tile-56"></i>
+              <p>İlan Listesi</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a  target="_self" th:href="${ '/myAccountLogin/' + user.id}" th:if="${myUserId eq null}" class="nav-link btn-rotate" >Giriş Yap</a>
+                <a  th:href="${ '/myAccount/' + myUserId}"  th:if="${myUserId ne null}" class="nav-link btn-rotate" >Profilim
+                </a>
+              </li>
+               <li class="nav-item">
+               <a target="_self" href="/chooseRegister"  th:if="${myUserId eq null}" class="nav-link btn-rotate" >Üye Ol</a>
+             <!--  <a target="_self" th:href="${ '/logoutMyAccount/' + user.id}"  th:if="${myUserId ne null}"  class="nav-link btn-rotate" >Çıkış Yap</a>-->
+            <a target="_self" th:href="${ '/logOut/'}" th:if="${myUserId ne null}"  class="nav-link btn-rotate" >Çıkış Yap</a>
+               </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <div style="margin-left: 20px; margin-top: 100px;"> </div>
+
+
+
+<table id="example" class="display" >
+        <thead>
+            <tr>
+                <th>İlan Adı </th>
+                <th>İlan Açıklaması</th>
+                <th>İlana Git</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody >
+                <tr th:each="post: ${posts}">
+                <td th:text="${post.title}"></td>
+                <td th:text="${post.description}"> </td>
+                 <td><a th:href="${'/advisermentInformation/' + post.id}"  class="btn-danger">İlana Git</a></td>
+                <td><a th:href="${'/deleteAdviserment/' + post.id}"  class="btn-danger">Sil</a></td>
+                 </tr>
+        </tbody>
+    </table>
+
+        <footer class="footer footer-black  footer-white " style="margin-top: 700px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="footer-nav">
+                        <ul>
+                            <li>
+                                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
+                            </li>
+                            <li>
+                                <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
+                            </li>
+                            <li>
+                                <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+   <script language="JavaScript">
+            $(document).ready(function() {
+            	//Only needed for the filename of export files.
+            	//Normally set in the title tag of your page.
+            	document.title='Simple DataTable';
+            	// DataTable initialisation
+            	$('#example').DataTable(
+            		{
+            			"paging": true,
+            			"autoWidth": true,
+            			"buttons": [
+            				'colvis',
+            				'copyHtml5',
+                    'csvHtml5',
+            				'excelHtml5',
+                    'pdfHtml5',
+            				'print'
+            			]
+            		}
+            	);
+            });
+            </script>
+
+</body>
+
+</html>
